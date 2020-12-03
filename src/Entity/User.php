@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -25,34 +26,64 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Votre prenom ne peut avoir moin de 2 caractères",
+     *      maxMessage = "Votre prenom ne peut avoir plus de 20 caractères"
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Votre nom ne peut avoir moin de 2 caractères",
+     *      maxMessage = "Votre nom ne peut avoir plus de 20 caractères"
+     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $sexe;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
-    private $age;
+    private $birthday;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *     message = "Votre email n'est pas valide."
+     * )
      */
     private $email;
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     private $password;
+    /**
+     *  @Assert\NotBlank
+     *  @Assert\EqualTo(
+     *  propertyPath= "password",
+     *  message= "Les deux mot de passe ne sont pas identiques."
+     * 
+     * )
+     */
+    public $confirmePassword;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -178,14 +209,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAge(): ?string
+    public function getBirthday(): ?\DateTimeInterface
     {
-        return $this->age;
+        return $this->birthday;
     }
 
-    public function setAge(string $age): self
+    public function setBirthday(\DateTimeInterface $birthday): self
     {
-        $this->age = $age;
+        $this->birthday = $birthday;
 
         return $this;
     }
