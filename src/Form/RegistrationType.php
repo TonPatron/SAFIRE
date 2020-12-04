@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
@@ -33,7 +34,11 @@ class RegistrationType extends AbstractType
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
             ->add('confirmePassword', PasswordType::class)
-            ->add('image', FileType::class, ['label' => 'Image (JPG, PNG)']);
+            ->add('image', FileType::class, ['label' => 'Image (JPG, PNG)'])
+            ->add('user_responsability', CheckboxType::class, [
+                'label'    => 'Cochez pour accepter la politique de responsabliée.',
+                'required' => false,
+            ]);
         //->add('inscriptionAt', DateTimeType::class);
     }
 

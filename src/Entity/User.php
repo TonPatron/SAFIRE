@@ -95,6 +95,12 @@ class User implements UserInterface
      */
     private $inscriptionAt;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     * @Assert\IsTrue(message="Cochez pour vous inscrir.")
+     */
+    private $user_responsability;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -241,6 +247,18 @@ class User implements UserInterface
     public function setInscriptionAt(\DateTimeInterface $inscriptionAt): self
     {
         $this->inscriptionAt = $inscriptionAt;
+
+        return $this;
+    }
+
+    public function getUserResponsability(): ?bool
+    {
+        return $this->user_responsability;
+    }
+
+    public function setUserResponsability(?bool $user_responsability): self
+    {
+        $this->user_responsability = $user_responsability;
 
         return $this;
     }
