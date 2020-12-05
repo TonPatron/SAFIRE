@@ -61,7 +61,7 @@ class RegistrationController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
-            return $this->redirectToRoute('safire');
+            return $this->redirectToRoute('app_login');
         }
         return $this->render('registration/index.html.twig', [
             "formulaire" => $form->createView()
