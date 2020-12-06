@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Films;
 use App\Form\AdminType;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,6 +75,55 @@ class AdminController extends AbstractController
         return $this->render('admin/inscription.html.twig', [
             "formulaire" => $form->createView()
 
+        ]);
+    }
+
+
+
+    /**
+     * @Route("/admin/addFilms", name="addFilms")
+     * @Route("/admin/editFilms/{id}", name="editFilms")
+     */
+    public function formulaireFilms(Films $Films = null, Request $request, ObjectManager $objectManager)
+    {
+        //$Films = new Films(); //est null de base à la difference de l'élement cidessus
+
+        if (!$Films) { //{id} va recuperer toutes les donnée de la base
+            $Films = new Films();
+        }
+
+        $form = $this->createForm(FilmsType::class, $Films);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$Films) {
+                $Films->setEmbaucheAt(new \DateTime());
+            }
+            $objectManager->persist($Films);
+            $objectManager->flush();
+            return $this->redirectToRoute("showFilms");
+        }
+
+        $mode = false;
+        if ($Films->getId() !== null) {
+            $mode = true;
+        }
+        return $this->render('admin/createF.html.twig', [
+            "formulaire" => $form->createView(),
+            "mode" => $mode
+
+        ]);
+    }
+
+    /**
+     * @Route("/entreprise/showFilms", name="showFilms")
+     */
+    public function afficheFilms()
+    {
+        $repository = $this->getDoctrine()->getRepository(Films::class);
+        $employes = $repository->findAll();
+
+        return $this->render('admin/showFilms.html.twig', [
+            'employes' => $employes
         ]);
     }
 }

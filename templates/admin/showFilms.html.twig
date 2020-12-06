@@ -1,0 +1,35 @@
+{# 
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	{% for employe in employes %}
+		<h1>{{employe.nom}}
+			{{employe.prenom}}
+		</h1>
+		<img src="{{employe.image}} " alt="">
+		<p>Le salaire est
+			{{employe.salaire}}
+		</p>
+		<p>La date d'embauche:
+			{{employe.embaucheAt|date("m/d/Y")}}
+		</p>
+		<div class="description">
+			<h3>Description du job</h3>
+			{{employe.service.description|raw}}
+		</div>
+		<a href="{{path('showOne',{'id':employe.id}) }}">
+			<button class="btn btn-success">Ajouter</button>
+		</a>
+		<a href="{{path('editEmploye',{'id':employe.id}) }}">
+			<button class="btn btn-warning">Editer</button>
+		</a>
+		<a href="{{path('removeEmploye',{'id':employe.id}) }}">
+			<button class="btn btn-info">Supprimer</button>
+		</a>
+	{% endfor %}
+{% endblock %}
+
+
+
+ #}

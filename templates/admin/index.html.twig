@@ -2,17 +2,24 @@
 
 {% block body %}
 	<li class="nav-item">
-		<a class="nav-link" href="{{path('inscriptionMembre')}}">Inscription</a>
+		<a class="nav-link" href="{{path('inscriptionMembre')}}">Inscription un Abonner</a>
 	</li>
-	{# 	<label for="Ajout">Ajouter</label>
-					<li class="nav-item">
-						<a class="nav-link" href="{{path('ajouterFilm')}}">ajouterfilm</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{path('ajouterSerie')}}">ajouterserie</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{path('ajouterAnime')}}">ajouteranime</a>
-					</li> #}
+	<label for="Ajout">Ajouter</label>
+	<li class="nav-item">
+		<a class="nav-link" href="{{path('addFilms')}}">ajouterfilm</a>
+	</li>
+	{# <li class="nav-item">
+											<a class="nav-link" href="{{path('ajouterSerie')}}">ajouterserie</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="{{path('ajouterAnime')}}">ajouteranime</a>
+										</li> #}
+
+
+	<label for="Ajout">Editer</label>
+	<li class="nav-item">
+		<a class="nav-link" href="{{path('editFilms')}}">modifierfilm</a>
+	</li>
+
 
 {% endblock %}
