@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link
+		rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+		{# <link rel="stylesheet" href="{{asset('asset/js/scrip.js')}}">#}
+		{% block stylesheets %}{% endblock %}
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#"></a>
+			<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+				<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+				<a href="#" class="w3-bar-item w3-button">Link 1</a>
+				<a href="#" class="w3-bar-item w3-button">Link 2</a>
+				<a href="#" class="w3-bar-item w3-button">Link 3</a>
+			</div>
+
+			<div id="main">
+
+				<div class="w3-teal">
+					<button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+
+				</div>
+			</div>
+
+
+			<form class="form-inline my-2 my-lg-0">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">HOME
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">INSCRIPTION</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">CONNEXION</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">DECONNEXION</a>
+					</li>
+				</ul>
+				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+			</form>
+
+
+		</nav>
+
+
+		<script>
+			function w3_open() {
+document.getElementById("main").style.marginLeft = "25%";
+document.getElementById("mySidebar").style.width = "25%";
+document.getElementById("mySidebar").style.display = "block";
+document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+document.getElementById("main").style.marginLeft = "0%";
+document.getElementById("mySidebar").style.display = "none";
+document.getElementById("openNav").style.display = "inline-block";
+}
+		</script>
+		{% block body %}{% endblock %}
+		<h1>SAF-IRE</h1>
+		{% block javascripts %}{% endblock %}
+	</body>
+</html></body></html>
