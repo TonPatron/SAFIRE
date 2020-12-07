@@ -44,6 +44,11 @@ class Categorie
      */
     private $animes;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->films = new ArrayCollection();
@@ -166,6 +171,18 @@ class Categorie
                 $anime->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
