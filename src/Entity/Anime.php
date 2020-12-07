@@ -42,6 +42,11 @@ class Anime
      */
     private $ajouter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="animes")
+     */
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Anime
     public function setAjouter(bool $ajouter): self
     {
         $this->ajouter = $ajouter;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

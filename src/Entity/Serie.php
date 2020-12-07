@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\SeriesRepository;
+use App\Repository\SerieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SeriesRepository::class)
+ * @ORM\Entity(repositoryClass=SerieRepository::class)
  */
-class Series
+class Serie
 {
     /**
      * @ORM\Id
@@ -41,6 +41,11 @@ class Series
      * @ORM\Column(type="boolean")
      */
     private $ajouter;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="series")
+     */
+    private $categorie;
 
     public function getId(): ?int
     {
@@ -103,6 +108,18 @@ class Series
     public function setAjouter(bool $ajouter): self
     {
         $this->ajouter = $ajouter;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

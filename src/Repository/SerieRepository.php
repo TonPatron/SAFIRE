@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Series;
+use App\Entity\Serie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Series|null find($id, $lockMode = null, $lockVersion = null)
- * @method Series|null findOneBy(array $criteria, array $orderBy = null)
- * @method Series[]    findAll()
- * @method Series[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Serie|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Serie|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Serie[]    findAll()
+ * @method Serie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SeriesRepository extends ServiceEntityRepository
+class SerieRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Series::class);
+        parent::__construct($registry, Serie::class);
     }
 
     // /**
-    //  * @return Series[] Returns an array of Series objects
+    //  * @return Serie[] Returns an array of Serie objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class SeriesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Series
+    public function findOneBySomeField($value): ?Serie
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

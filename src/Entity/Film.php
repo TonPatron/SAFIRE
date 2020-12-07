@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\FilmsRepository;
+use App\Repository\FilmRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=FilmsRepository::class)
+ * @ORM\Entity(repositoryClass=FilmRepository::class)
  */
-class Films
+class Film
 {
     /**
      * @ORM\Id
@@ -41,6 +41,11 @@ class Films
      * @ORM\Column(type="boolean")
      */
     private $ajouter;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="films")
+     */
+    private $categorie;
 
     public function getId(): ?int
     {
@@ -103,6 +108,18 @@ class Films
     public function setAjouter(bool $ajouter): self
     {
         $this->ajouter = $ajouter;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

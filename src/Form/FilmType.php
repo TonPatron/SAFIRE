@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Films;
+use App\Entity\Film;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FilmsType extends AbstractType
+class FilmType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -17,13 +17,14 @@ class FilmsType extends AbstractType
             ->add('description')
             ->add('date_sortieAt')
             ->add('ajouter')
+            ->add('categorie')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Films::class,
+            'data_class' => Film::class,
         ]);
     }
 }
