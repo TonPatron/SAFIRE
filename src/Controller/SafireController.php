@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Categorie;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SafireController extends AbstractController
 {
@@ -25,4 +26,23 @@ class SafireController extends AbstractController
     {
         return $this->render('safire/index.html.twig');
     }
+
+
+
+
+    // /**
+    //  * @Route("/safire/categorieFilm/", name="categorieFilm")
+    //  */
+    // public function afficheFilmsByCategorie()
+    // {
+    //     $repository = $this->getDoctrine()->getRepository(Categorie::class);
+    //     $films = $repository->findFilmByCategorie();
+
+    //     return $this->render('safire/categorieFilm.html.twig', [
+    //         'films' => $films
+    //     ])
+
+    // }
+
+
 }

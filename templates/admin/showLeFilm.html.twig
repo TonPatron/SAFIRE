@@ -1,0 +1,24 @@
+{% extends "baseAdmin.html.twig" %}
+
+
+{% block body %}
+
+	<br>
+
+	<h3>{{film.titre}}
+	</h3>
+
+	<div>
+		<a href="{{path('showLeFilm', {'id':film.id})}}">
+			<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
+		</a>
+	</div>
+	<p>La date:
+		{{film.dateDeSortieAt| date("m/d/Y")}}
+	</p>
+	<div class="description">
+		<h3>Description</h3>
+		{{film.description|raw}}
+	</div>
+
+{% endblock %}

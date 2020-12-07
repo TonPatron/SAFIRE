@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
-class FilmType extends AbstractType
+class FilmAdminType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -19,7 +19,7 @@ class FilmType extends AbstractType
             ->add('imageFilm', FileType::class, ['label' => 'Image (JPG, PNG)'])
             ->add('description')
             ->add('dateDeSortieAt', DateTimeType::class);
-            //->add('ajouter')
+            //->add('ajouter', ChoiceType::class)
             //->add('categorie', ChoiceType::class)
     }
 

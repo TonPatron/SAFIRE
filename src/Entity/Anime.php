@@ -35,17 +35,12 @@ class Anime
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_sortieAt;
+    private $dateDeSortieAt;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $ajouter;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="animes")
-     */
-    private $categorie;
 
     public function getId(): ?int
     {
@@ -88,14 +83,14 @@ class Anime
         return $this;
     }
 
-    public function getDateSortieAt(): ?\DateTimeInterface
+    public function getDateDeSortieAt(): ?\DateTimeInterface
     {
-        return $this->date_sortieAt;
+        return $this->dateDeSortieAt;
     }
 
-    public function setDateSortieAt(\DateTimeInterface $date_sortieAt): self
+    public function setDateDeSortieAt(\DateTimeInterface $dateDeSortieAt): self
     {
-        $this->date_sortieAt = $date_sortieAt;
+        $this->dateDeSortieAt = $dateDeSortieAt;
 
         return $this;
     }
@@ -108,18 +103,6 @@ class Anime
     public function setAjouter(bool $ajouter): self
     {
         $this->ajouter = $ajouter;
-
-        return $this;
-    }
-
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
 
         return $this;
     }

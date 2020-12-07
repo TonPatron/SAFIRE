@@ -6,6 +6,8 @@
 parameters:
     dossier_images: '%kernel.project_dir%/public/uploads/images'
     dossier_imageFilms: '%kernel.project_dir%/public/uploads/imageFilms'
+    dossier_imageSeries: '%kernel.project_dir%/public/uploads/imageSeries'
+    dossier_imageAnimes: '%kernel.project_dir%/public/uploads/imageAnimes'
     
 
 services:

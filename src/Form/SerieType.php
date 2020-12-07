@@ -15,9 +15,9 @@ class SerieType extends AbstractType
             ->add('titre')
             ->add('imageSerie')
             ->add('description')
-            ->add('date_sortieAt')
-            ->add('ajouter')
-            ->add('categorie')
+            ->add('dateDeSortieAt')
+            //->add('ajouter')
+            //->add('categorie')
         ;
     }
 

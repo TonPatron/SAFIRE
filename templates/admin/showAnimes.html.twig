@@ -1,0 +1,39 @@
+{% extends "baseAdmin.html.twig" %}
+
+
+{% block body %}
+
+	{% for anime in animes %}
+		<br>
+
+		<h3>{{anime.titre}}
+		</h3>
+
+		<div>
+			<a href="{{path('showLanime', {'id':anime.id})}}">
+				<img class="imageabsolute" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'animes du momment">
+			</a>
+		</div>
+		<p>La date:
+			{{anime.dateDeSortieAt| date("m/d/Y")}}
+		</p>
+		<div class="description">
+			<h3>Description</h3>
+			{{anime.description|raw}}
+		</div>
+
+
+		{# <a href="#">
+						<button class="btn btn-success">Ajouter</button>
+						</a> #}
+
+		<a href="#">
+			<button class="btn btn-warning">Editer</button>
+		</a>
+
+		<a href="{{path('removeAnimes', {'id':anime.id})}}">
+			<button class="btn btn-info">Supprimer</button>
+		</a>
+		<br>
+	{% endfor %}
+{% endblock %}
