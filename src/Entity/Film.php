@@ -42,6 +42,11 @@ class Film
      */
     private $ajouter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="films")
+     */
+    private $user;
+
 
     public function getId(): ?int
     {
@@ -104,6 +109,18 @@ class Film
     public function setAjouter(bool $ajouter): self
     {
         $this->ajouter = $ajouter;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

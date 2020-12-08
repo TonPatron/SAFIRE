@@ -16,11 +16,11 @@ class AnimeAdminType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('imageAnime', FileType::class, ['label' => 'Image (JPG, PNG)'])
+            ->add('imageAnime', FileType::class, ['label' => 'Image (JPG, PNG)', 'data_class' => null, 'required' => false])
             ->add('description')
             ->add('dateDeSortieAt', DateTimeType::class);
-            //->add('ajouter', ChoiceType::class)
-        
+        //->add('ajouter', ChoiceType::class)
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

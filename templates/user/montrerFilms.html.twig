@@ -1,4 +1,3 @@
-{% extends "baseAdmin.html.twig" %}
 
 
 {% block body %}
@@ -10,7 +9,7 @@
 		</h3>
 
 		<div>
-			<a href="{{path('showLeFilm', {'id':film.id})}}">
+			<a href="{{path('montrerLeFilm', {'id':film.id})}}">
 				<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
 			</a>
 		</div>
@@ -27,13 +26,13 @@
 		<button class="btn btn-success">Ajouter</button>
 		</a> #}
 
-		<a href="{{path('editFilms',{'id':film.id})}}">
+		<a href="{{path('modifierFilms',{'id':film.id})}}">
 			<button class="btn btn-warning">Editer</button>
 		</a>
 
-		<a href="{{path('removeFilms',{'id':film.id})}}">
+		<a href="{{path('supprimeFilms',{'id':film.id})}}">
 			<button class="btn btn-info">Supprimer</button>
-		</a>
+		</a> 
 		
 		<br>
 	{% endfor %}

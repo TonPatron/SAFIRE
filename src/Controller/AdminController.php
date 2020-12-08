@@ -385,6 +385,7 @@ class AdminController extends AbstractController
     }
 
 
+
     /**
      * @Route("/admin/showAnimes", name="showAnimes")
      */

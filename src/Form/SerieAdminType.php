@@ -16,7 +16,7 @@ class SerieAdminType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('imageSerie', FileType::class, ['label' => 'Image (JPG, PNG)'])
+            ->add('imageSerie', FileType::class, ['label' => 'Image (JPG, PNG)','data_class' => null,'required' => false])
             ->add('description')
             ->add('dateDeSortieAt', DateTimeType::class);
             //->add('ajouter', ChoiceType::class)

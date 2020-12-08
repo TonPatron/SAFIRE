@@ -53,6 +53,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
     */
 
+    public function findFilmByUser($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->select("f.titre,f.imageFilm,f.description, f.dateDeSortieAt, f.id")
+            ->leftJoin("u.films", "f")
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
+
     /*
     public function findOneBySomeField($value): ?User
     {

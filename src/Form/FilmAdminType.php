@@ -16,7 +16,7 @@ class FilmAdminType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('imageFilm', FileType::class, ['label' => 'Image (JPG, PNG)'])
+            ->add('imageFilm', FileType::class, ['label' => 'Image (JPG, PNG)','data_class' => null,'required' => false])
             ->add('description')
             ->add('dateDeSortieAt', DateTimeType::class);
             //->add('ajouter', ChoiceType::class)
