@@ -6,6 +6,9 @@ use App\Entity\Serie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class SerieType extends AbstractType
 {
@@ -13,11 +16,11 @@ class SerieType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('imageSerie')
+            ->add('imageSerie', FileType::class, ['label' => 'Image (JPG, PNG)','data_class' => null,'required' => false])
             ->add('description')
-            ->add('dateDeSortieAt')
+            ->add('dateDeSortieAt', DateTimeType::class)
             //->add('ajouter')
-            //->add('categorie')
+            //->add('categorie', ChoiceType::class)
         ;
     }
 

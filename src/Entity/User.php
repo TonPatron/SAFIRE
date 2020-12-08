@@ -113,10 +113,16 @@ class User implements UserInterface
      */
     private $series;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Anime::class, mappedBy="user")
+     */
+    private $animes;
+
     public function __construct()
     {
         $this->films = new ArrayCollection();
         $this->series = new ArrayCollection();
+        $this->animes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -335,6 +341,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($series->getUser() === $this) {
                 $series->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Anime[]
+     */
+    public function getAnimes(): Collection
+    {
+        return $this->animes;
+    }
+
+    public function addAnime(Anime $anime): self
+    {
+        if (!$this->animes->contains($anime)) {
+            $this->animes[] = $anime;
+            $anime->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnime(Anime $anime): self
+    {
+        if ($this->animes->removeElement($anime)) {
+            // set the owning side to null (unless already changed)
+            if ($anime->getUser() === $this) {
+                $anime->setUser(null);
             }
         }
 

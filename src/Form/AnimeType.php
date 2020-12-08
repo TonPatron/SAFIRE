@@ -6,6 +6,9 @@ use App\Entity\Anime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class AnimeType extends AbstractType
 {
@@ -13,11 +16,11 @@ class AnimeType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('imageAnime')
+            ->add('imageAnime', FileType::class, ['label' => 'Image (JPG, PNG)','data_class' => null,'required' => false])
             ->add('description')
-            ->add('dateDeSortieAt')
+            ->add('dateDeSortieAt', DateTimeType::class)
            // ->add('ajouter')
-           // ->add('categorie')
+           //->add('categorie', ChoiceType::class)
         ;
     }
 

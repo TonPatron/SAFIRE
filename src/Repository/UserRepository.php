@@ -56,7 +56,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function findFilmByUser($value)
     {
         return $this->createQueryBuilder('u')
-            ->select("f.titre,f.imageFilm,f.description, f.dateDeSortieAt, f.id")
+            ->select("f.titre, f.imageFilm, f.description, f.dateDeSortieAt, f.id")
             ->leftJoin("u.films", "f")
             ->andWhere('u.id = :val')
             ->setParameter('val', $value)
@@ -65,8 +65,31 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
 
+    public function findSerieByUser($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->select("s.titre, s.imageSerie, s.description, s.dateDeSortieAt, s.id")
+            ->leftJoin("u.series", "s")
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
 
 
+
+    public function findAnimeByUser($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->select("a.titre, a.imageAnime, a.description, a.dateDeSortieAt, a.id")
+            ->leftJoin("u.animes", "a")
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
+    
     /*
     public function findOneBySomeField($value): ?User
     {
