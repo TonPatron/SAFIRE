@@ -4,20 +4,32 @@
 	{% for serie in series %}
 		<br>
 
-		<h3>{{serie.titre}}
-		</h3>
+		<div class="card mb-3" style="max-width: 1500px; margin-left:5px">
+			<div class="row no-gutters">
 
-		<div>
-			<a href="{{path('afficheLaSerie', {'id':serie.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="la series du momment">
-			</a>
-		</div>
-		<p>La date:
-			{{serie.dateDeSortieAt| date("m/d/Y")}}
-		</p>
-		<div class="description">
-			<h3>Description</h3>
-			{{serie.description|raw}}
+				<div class="col-md-2">
+					<a href="{{path('afficheLaSerie', {'id':serie.id})}}">
+						<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="la series du momment">
+					</a>
+				</div>
+
+				<div class="col-md-10">
+					<div class="card-body">
+						<h5 class="card-title">{{serie.titre}}</h5>
+
+						<p>Sort le:
+							{{serie.dateDeSortieAt| date("m/d/Y")}}
+						</p>
+
+						<div class="description">
+							<h5>Description</h5>
+							{{serie.description|raw}}
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 		</div>
 
 		<br>

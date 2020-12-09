@@ -1,25 +1,42 @@
 {% extends "base2.html.twig" %}
+
 {% block body %}
 
 	{% for film in films %}
 		<br>
 
-		<h3>{{film.titre}}
-		</h3>
+		<div class="card mb-3" style="max-width: 1500px; margin-left:5px">
+			<div class="row no-gutters">
 
-		<div>
-			<a href="{{path('afficheLeFilm', {'id':film.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
-			</a>
+				<div class="col-md-2">
+					<a href="{{path('afficheLeFilm', {'id':film.id})}}">
+						<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
+					</a>
+				</div>
+
+				<div class="col-md-10">
+					<div class="card-body">
+						<h5 class="card-title">{{film.titre}}</h5>
+
+						<p>Sort le:
+							{{film.dateDeSortieAt| date("m/d/Y")}}
+						</p>
+
+						<div class="description">
+							<h5>Description</h5>
+							{{film.description|raw}}
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 		</div>
-		<p>La date:
-			{{film.dateDeSortieAt| date("m/d/Y")}}
-		</p>
-		<div class="description">
-			<h3>Description</h3>
-			{{film.description|raw}}
-		</div>
+
 
 		<br>
 	{% endfor %}
+
 {% endblock %}
+
+

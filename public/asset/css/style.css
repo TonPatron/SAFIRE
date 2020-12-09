@@ -1,8 +1,6 @@
 body{
     background-color: rgb(3, 3, 3);
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+
 }   
 #nav{
      /* background: url("../image/safire.jpg");  */
@@ -11,7 +9,7 @@ body{
 }
    .bcg{
     width: 100%;
-    height: 600px;
+    height: 550px;
 }    
 .droite{
     align-items: center;
@@ -28,11 +26,18 @@ body{
     
 
 }
-.logo,img{
-padding-right: 30%;
+.logo{
+padding-right: 20%;
 width: auto;
 height: 90px;
 }
+
+.imgLogo{
+    padding-right: 30%;
+    width: auto;
+    height: 90px;
+    }
+
 .foot{
      /* background :url("../image/safire.jpg") ;   */
      /* background-color: black; */
