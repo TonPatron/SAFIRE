@@ -4,12 +4,29 @@
 
 
 {% block body %}
+	<main>
+		<div class="clr">
 
-<a href="{{path('afficheAllFilms')}}"><h2>FILM</h2></a>
+			{# <i class="far fa-chevron-double-down" style="color: red; display: flex; justify-content: center; width: 100%; height: 150px;"></i> #}
+			
+            
+            
+            
+            
+            <a href="{{path('afficheAllFilms')}}">
+				<h2>FILM</h2>
+			</a>
 
-<a href="{{path('afficheAllSeries')}}"><h2>SERIE</h2></a>
+			<a href="{{path('afficheAllSeries')}}">
+				<h2>SERIE</h2>
+			</a>
 
-<a href="{{path('afficheAllAnimes')}}"><h2>ANIME</h2></a>
+			<a href="{{path('afficheAllAnimes')}}">
+				<h2>ANIME</h2>
+			</a>
+
+		</div>
+	</main>
 
 
 {% endblock %}
