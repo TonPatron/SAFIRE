@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SafireController extends AbstractController
 {
     /**
-     * @Route("/safire", name="safire")
+     * @Route("/", name="safire")
      */
     public function index(): Response
     {
