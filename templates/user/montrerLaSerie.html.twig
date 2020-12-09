@@ -1,0 +1,23 @@
+
+
+{% block body %}
+
+		<br>
+
+		<h3>{{serie.titre}}
+		</h3>
+
+		<div>
+			<a href="{{path('montrerLaSerie', {'id':serie.id})}}">
+				<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="le series du momment">
+			</a>
+		</div>
+		<p>La date:
+			{{serie.dateDeSortieAt| date("m/d/Y")}}
+		</p>
+		<div class="description">
+			<h3>Description</h3>
+			{{serie.description|raw}}
+		</div>
+
+{% endblock %}

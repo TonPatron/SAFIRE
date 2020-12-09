@@ -1,0 +1,39 @@
+
+
+{% block body %}
+
+	{% for film in films %}
+		<br>
+
+		<h3>{{film.titre}}
+		</h3>
+
+		<div>
+			<a href="{{path('montrerLeFilm', {'id':film.id})}}">
+				<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
+			</a>
+		</div>
+		<p>La date:
+			{{film.dateDeSortieAt| date("m/d/Y")}}
+		</p>
+		<div class="description">
+			<h3>Description</h3>
+			{{film.description|raw}}
+		</div>
+
+
+		{# <a href="#">
+		<button class="btn btn-success">Ajouter</button>
+		</a> #}
+
+		<a href="{{path('modifierFilms',{'id':film.id})}}">
+			<button class="btn btn-warning">Editer</button>
+		</a>
+
+		<a href="{{path('supprimeFilms',{'id':film.id})}}">
+			<button class="btn btn-info">Supprimer</button>
+		</a> 
+		
+		<br>
+	{% endfor %}
+{% endblock %}

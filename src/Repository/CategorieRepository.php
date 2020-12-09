@@ -36,6 +36,20 @@ class CategorieRepository extends ServiceEntityRepository
     }
     */
 
+    public function findFilmByCategorie($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('f.titre')
+            ->leftJoin('c.films ', 'f')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $value)
+
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
     /*
     public function findOneBySomeField($value): ?Categorie
     {

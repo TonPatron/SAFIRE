@@ -2,9 +2,17 @@
 
 namespace App\Controller;
 
+
+use App\Entity\Film;
 use App\Entity\User;
-use App\Entity\Films;
+
+use App\Entity\Anime;
+use App\Entity\Serie;
 use App\Form\AdminType;
+use App\Entity\Categorie;
+use App\Form\FilmAdminType;
+use App\Form\AnimeAdminType;
+use App\Form\SerieAdminType;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +34,9 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+
+////////////////////////////////////////////////////INSCRIPTION///////////////////////////////////////////////////////////////////////
+
 
     /**
      * @Route("/admin/inscriptionMembre", name="inscriptionMembre")
@@ -78,7 +89,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-
+////////////////////////////////////////////////////FILM///////////////////////////////////////////////////////////////////////
 
     /**
      * @Route("/admin/addFilms", name="addFilms")
@@ -92,11 +103,12 @@ class AdminController extends AbstractController
             $film = new Film();
         }
 
-        $form = $this->createForm(FilmsType::class, $film);
+        $form = $this->createForm(FilmAdminType::class, $film);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$film) {
-                $film->setEmbaucheAt(new \DateTime());
+                $film->setDateDeSortieAt(new \DateTime());
             }
 
 
@@ -128,6 +140,8 @@ class AdminController extends AbstractController
 
             // ... persist the $user variable or any other work
 
+            $film->setAjouter(true);
+
             $objectManager->persist($film);
             $objectManager->flush();
             return $this->redirectToRoute("showFilms");
@@ -145,7 +159,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/entreprise/showFilms", name="showFilms")
+     * @Route("/admin/showFilms", name="showFilms")
      */
     public function afficheFilms()
     {
@@ -156,4 +170,300 @@ class AdminController extends AbstractController
             'films' => $films
         ]);
     }
+
+
+    /**
+     * @Route("/admin/showLeFilm/{id}", name="showLeFilm")
+     */
+    public function afficheLeFilms($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Film::class);
+        $film = $repository->find($id);
+
+        return $this->render('admin/showLeFilm.html.twig', [
+            'film' => $film
+        ]);
+    }
+
+    /**
+     * @Route("/admin/removeFilm/{id}", name="removeFilms")
+     */
+    public function deleteFilm(Film $film)
+    {
+        $objectManager = $this->getDoctrine()->getManager();
+        $objectManager->remove($film);
+        $objectManager->flush();
+        return $this->redirectToRoute("showFilms");
+    }
+
+
+
+
+/////////////////////////////////////////////////////////SERIES//////////////////////////////////////////////////////////////////
+
+
+ /**
+     * @Route("/admin/addSeries", name="addSeries")
+     * @Route("/admin/editSeries/{id}", name="editSeries")
+     */
+    public function formulaireSeries(Serie $serie = null, Request $request, ObjectManager $objectManager, SluggerInterface $slugger)
+    {
+        //$Series = new Series(); //est null de base à la difference de l'élement cidessus
+
+        if (!$serie) { //{id} va recuperer toutes les donnée de la base
+            $serie = new Serie();
+        }
+
+        $form = $this->createForm(SerieAdminType::class, $serie);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$serie) {
+                $serie->setDateDeSortieAt(new \DateTime());
+            }
+
+
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('imageSerie')->getData();
+
+            // this condition is needed because the 'image' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                // Move the file to the directory where images are stored
+                try {
+                    $imageFile->move(
+                        $this->getParameter('dossier_imageSeries'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'image' property to store the PDF file name
+                // instead of its contents
+                $serie->setImageSerie($newFilename);
+            }
+
+            // ... persist the $user variable or any other work
+
+            $serie->setAjouter(true);
+
+            $objectManager->persist($serie);
+            $objectManager->flush();
+            return $this->redirectToRoute("showSeries");
+        }
+
+        $mode = false;
+        if ($serie->getId() !== null) {
+            $mode = true;
+        }
+        return $this->render('admin/createS.html.twig', [
+            "formulaire" => $form->createView(),
+            "mode" => $mode
+
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/showSeries", name="showSeries")
+     */
+    public function afficheSeries()
+    {
+        $repository = $this->getDoctrine()->getRepository(Serie::class);
+        $series = $repository->findAll();
+
+        return $this->render('admin/showSeries.html.twig', [
+            'series' => $series
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/showLaSerie/{id}", name="showLaSerie")
+     */
+    public function afficheLeSeries($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Serie::class);
+        $serie = $repository->find($id);
+
+        return $this->render('admin/showLaSerie.html.twig', [
+            'serie' => $serie
+        ]);
+    }
+
+    /**
+     * @Route("/admin/removeSerie/{id}", name="removeSeries")
+     */
+    public function deleteSerie(Serie $serie)
+    {
+        $objectManager = $this->getDoctrine()->getManager();
+        $objectManager->remove($serie);
+        $objectManager->flush();
+        return $this->redirectToRoute("showSeries");
+    }
+
+
+
+
+
+
+//////////////////////////////////////////////////////////ANIMES/////////////////////////////////////////////////////////////////
+
+
+
+ /**
+     * @Route("/admin/addAnimes", name="addAnimes")
+     * @Route("/admin/editAnimes/{id}", name="editAnimes")
+     */
+    public function formulaireAnimes(Anime $anime = null, Request $request, ObjectManager $objectManager, SluggerInterface $slugger)
+    {
+        //$Animes = new Animes(); //est null de base à la difference de l'élement cidessus
+
+        if (!$anime) { //{id} va recuperer toutes les donnée de la base
+            $anime = new Anime();
+        }
+
+        $form = $this->createForm(AnimeAdminType::class, $anime);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$anime) {
+                $anime->setDateDeSortieAt(new \DateTime());
+            }
+
+
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('imageAnime')->getData();
+
+            // this condition is needed because the 'image' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                // Move the file to the directory where images are stored
+                try {
+                    $imageFile->move(
+                        $this->getParameter('dossier_imageAnimes'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'image' property to store the PDF file name
+                // instead of its contents
+                $anime->setImageAnime($newFilename);
+            }
+
+            // ... persist the $user variable or any other work
+
+            $anime->setAjouter(true);
+
+            $objectManager->persist($anime);
+            $objectManager->flush();
+            return $this->redirectToRoute("showAnimes");
+        }
+
+        $mode = false;
+        if ($anime->getId() !== null) {
+            $mode = true;
+        }
+        return $this->render('admin/createA.html.twig', [
+            "formulaire" => $form->createView(),
+            "mode" => $mode
+
+        ]);
+    }
+
+
+
+    /**
+     * @Route("/admin/showAnimes", name="showAnimes")
+     */
+    public function afficheAnimes()
+    {
+        $repository = $this->getDoctrine()->getRepository(Anime::class);
+        $animes = $repository->findAll();
+
+        return $this->render('admin/showAnimes.html.twig', [
+            'animes' => $animes
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/showLanime/{id}", name="showLanime")
+     */
+    public function afficheLeAnimes($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Anime::class);
+        $anime = $repository->find($id);
+
+        return $this->render('admin/showLanime.html.twig', [
+            'anime' => $anime
+        ]);
+    }
+
+    /**
+     * @Route("/admin/removeAnime/{id}", name="removeAnimes")
+     */
+    public function deleteAnime(Anime $anime)
+    {
+        $objectManager = $this->getDoctrine()->getManager();
+        $objectManager->remove($anime);
+        $objectManager->flush();
+        return $this->redirectToRoute("showAnimes");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

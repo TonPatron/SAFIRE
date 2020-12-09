@@ -35,7 +35,7 @@ class Serie
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_sortieAt;
+    private $dateDeSortieAt;
 
     /**
      * @ORM\Column(type="boolean")
@@ -43,9 +43,10 @@ class Serie
     private $ajouter;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="series")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="series")
      */
-    private $categorie;
+    private $user;
+
 
     public function getId(): ?int
     {
@@ -88,14 +89,14 @@ class Serie
         return $this;
     }
 
-    public function getDateSortieAt(): ?\DateTimeInterface
+    public function getDateDeSortieAt(): ?\DateTimeInterface
     {
-        return $this->date_sortieAt;
+        return $this->dateDeSortieAt;
     }
 
-    public function setDateSortieAt(\DateTimeInterface $date_sortieAt): self
+    public function setDateDeSortieAt(\DateTimeInterface $dateDeSortieAt): self
     {
-        $this->date_sortieAt = $date_sortieAt;
+        $this->dateDeSortieAt = $dateDeSortieAt;
 
         return $this;
     }
@@ -112,14 +113,14 @@ class Serie
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
+    public function getUser(): ?User
     {
-        return $this->categorie;
+        return $this->user;
     }
 
-    public function setCategorie(?Categorie $categorie): self
+    public function setUser(?User $user): self
     {
-        $this->categorie = $categorie;
+        $this->user = $user;
 
         return $this;
     }
