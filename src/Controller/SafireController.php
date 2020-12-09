@@ -6,6 +6,9 @@ use App\Entity\Film;
 use App\Entity\Anime;
 use App\Entity\Serie;
 use App\Entity\Categorie;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\Mapping\OrderBy;
+use LimitIterator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,10 +20,25 @@ class SafireController extends AbstractController
      */
     public function index(): Response
     {
+
+         $repository = $this->getDoctrine()->getRepository(Anime::class);
+         $animes = $repository->findBy(
+             array(),
+             array('dateDeSortieAt' => 'ASC'),
+              9,0);
         return $this->render('safire/index.html.twig', [
             'controller_name' => 'SafireController',
+            'animes' => $animes,
+        
         ]);
     }
+
+
+
+
+
+
+
 
     /**
      * @Route("/inscription", name="inscription")
@@ -34,10 +52,10 @@ class SafireController extends AbstractController
 
 
 
-////////////////////////////////////////AFFICHAGE///////////////////////////////////////////////////
+    ////////////////////////////////////////AFFICHAGE///////////////////////////////////////////////////
 
 
-////////////////Film////////////////////
+    ////////////////Film////////////////////
 
 
     /**
@@ -67,7 +85,7 @@ class SafireController extends AbstractController
         ]);
     }
 
-////////////////Serie////////////////////
+    ////////////////Serie////////////////////
 
     /**
      * @Route("/safire/afficheAllSeries", name="afficheAllSeries")
@@ -96,7 +114,7 @@ class SafireController extends AbstractController
         ]);
     }
 
-////////////////Anime////////////////////
+    ////////////////Anime////////////////////
 
     /**
      * @Route("/safire/afficheAllAnimes", name="afficheAllAnimes")
@@ -126,7 +144,7 @@ class SafireController extends AbstractController
     }
 
 
-////////////////////////////////////////RECHERCHE///////////////////////////////////////////////////
+    ////////////////////////////////////////RECHERCHE///////////////////////////////////////////////////
 
 
 
