@@ -21,9 +21,6 @@ class SafireController extends AbstractController
             'controller_name' => 'SafireController',
         ]);
     }
-<<<<<<< HEAD
-    
-=======
 
     /**
      * @Route("/inscription", name="inscription")
@@ -153,5 +150,4 @@ class SafireController extends AbstractController
     // }
 
 
->>>>>>> a9b70bfb2089f13df175d684dee37268f9cdeeac
 }
