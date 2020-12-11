@@ -37,7 +37,9 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">{{animes[n].titre}}</h5>
@@ -49,7 +51,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -61,7 +65,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -81,7 +87,9 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -93,7 +101,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -105,7 +115,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -125,7 +137,9 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -137,7 +151,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -149,7 +165,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
@@ -191,16 +209,15 @@
 
 		<!--Slides-->
 		<div class="carousel-inner" role="listbox">
- 
+
 			<div class="carousel-item active">
 				<div class="row">
-	{# {{dump(films)}}; #}			
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								{# <a href="{{path('afficheLeFilm', {'id':films.id})}}"> #}
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
 									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-								{# </a> #}
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">{{films[n].titre}}</h5>
@@ -212,7 +229,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
@@ -224,7 +243,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
@@ -244,20 +265,8 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
-								<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-							</div>
-						</div>
-					</div>
-					{% set n = n +1 %}
-					<div class="col-md-4 clearfix d-none d-md-block">
-						<div class="card mb-2">
-							<div class="toopit">
-								<a href="">
-									<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
 								</a>
 							</div>
 							<div class="card-body">
@@ -271,7 +280,25 @@
 						<div class="card mb-2">
 							<div class="toopit">
 								<a href="">
-									<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+									<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+										<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+									</a>
+								</a>
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+								<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+							</div>
+						</div>
+					</div>
+					{% set n = n +1 %}
+					<div class="col-md-4 clearfix d-none d-md-block">
+						<div class="card mb-2">
+							<div class="toopit">
+								<a href="">
+									<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+										<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+									</a>
 								</a>
 							</div>
 							<div class="card-body">
@@ -292,7 +319,9 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
@@ -304,7 +333,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
@@ -316,7 +347,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
@@ -367,7 +400,9 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">{{series[n].titre}}</h5>
@@ -379,7 +414,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -391,7 +428,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -411,7 +450,9 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -423,7 +464,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -435,7 +478,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -446,6 +491,7 @@
 				</div>
 
 			</div>
+
 			{% set n = n +1 %}
 
 			{# troisieme slide #}
@@ -455,7 +501,11 @@
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+										<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+									</a>
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -467,7 +517,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
@@ -479,7 +531,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+									<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{series[n].titre}}</h5>
