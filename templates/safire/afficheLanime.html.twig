@@ -1,21 +1,21 @@
-{% extends "base2.html.twig" %}
+{% extends "base.html.twig" %}
 {% block body %}
 
 		<br>
 
-		<h3>{{anime.titre}}
-		</h3>
+		<h5>{{anime.titre}}
+		</h5>
 
 		<div>
 			<a href="{{path('afficheLanime', {'id':anime.id})}}">
 				<img class="imageabsolute" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'animes du momment">
 			</a>
 		</div>
-		<p>La date:
+		<p>Sort le:
 			{{anime.dateDeSortieAt| date("m/d/Y")}}
 		</p>
 		<div class="description">
-			<h3>Description</h3>
+			<h5>Description</h5>
 			{{anime.description|raw}}
 		</div>
 

@@ -1,21 +1,21 @@
-{% extends "base2.html.twig" %}
+{% extends "base.html.twig" %}
 {% block body %}
 
 		<br>
 
-		<h3>{{film.titre}}
-		</h3>
+		<h5>{{film.titre}}
+		</h5>
 
 		<div>
 			<a href="{{path('afficheLeFilm', {'id':film.id})}}">
 				<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
 			</a>
 		</div>
-		<p>La date:
+		<p>Sort le:
 			{{film.dateDeSortieAt| date("m/d/Y")}}
 		</p>
 		<div class="description">
-			<h3>Description</h3>
+			<h5>Description</h5>
 			{{film.description|raw}}
 		</div>
 

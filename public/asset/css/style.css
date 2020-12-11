@@ -1,46 +1,122 @@
-body{
+/* Shine */
+
+body {
+    background-color: rgba(0, 0, 0, 0.787);
+}
+
+.h42 {
+    color: rgba(255, 0, 0, 0.719);
+}
+
+.h52 {
+    color: rgba(60, 60, 241, 0.753);
+}
+
+body {
     background-color: rgb(3, 3, 3);
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+
+
+/* HEADER */
+
+
 }   
 #nav{
      /* background: url("../image/safire.jpg");  */
     background-size: cover;
     background-position: center;
 }
-   .bcg{
+
+.bcg {
     width: 100%;
-    height: 600px;
+   
 }    
 .droite{
     align-items: center;
     justify-content: end;
 }
-.pub{
+
+.pub {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.clr{
-    background-color: rgb(168, 162, 162);
-    
 
+.clr {
+    background-color: rgb(168, 162, 162);
 }
-.logo,img{
-padding-right: 30%;
-width: auto;
-height: 90px;
+
+.logo {
+    padding-right: 30%;
+    width: auto;
+    height: 90px;
 }
-.foot{
-     /* background :url("../image/safire.jpg") ;   */
-     /* background-color: black; */
-    color: rgb(168, 162, 162);
+
+.foot {
+    /* background :url("../image/safire.jpg") ;   */
+    /* background-color: black; */
+    color: rgb(217, 219, 241);
     height: 200px;
     width: 100%;
     display: flex;
     justify-content: space-around;
+}
+
+.toopit {
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+}
+
+.toopit img {
+    min-width: 100%;
+    height: 300px;
+}
+
+.caranime {
+    width: 100%;
+    max-height: 200%;
+}
+
+.logo{
+padding-right: 20%;
+width: auto;
+height: 90px;
+}
+
+.imgLogo{
+    padding-right: 30%;
+    width: auto;
+    height: 90px;
+    }
+
+
+
+/* MAIN */
+
+    
+.clr{
+    background-color:#f0f0f0;
+     
+}
+
+.title h3{
+    color: black; 
+}
+
+/* FOOTER */
+
+
+
+.foot{
+     /* background :url("../image/safire.jpg") ;   */
+     /* background-color: black; */
+    
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;  
+    padding: 2%;
  }
  .rez{
      display: flex;
@@ -81,3 +157,43 @@ body,
 
 
  
+ 
+
+ .rez h6{
+     color: #f0f0f0;
+ }
+
+
+ /* PROFIL */
+
+ .profil{
+    background-image: url("../image/serie.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.laPhotoProfil{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.photoProfil{
+    
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.compte1{
+    
+    padding: 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,32 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseUser2.html.twig' %}
 
 
 {% block body %}
 
-	<label for="affichage">Afficher</label>
-	<li class="nav-item">
-		<a class="nav-link" href="{{path('montrerFilms')}}">afficherfilm</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="{{path('montrerSeries')}}">afficherserie</a>
-	</li>
-
-	<li class="nav-item">
-		<a class="nav-link" href="{{path('montrerAnimes')}}">afficheranime</a>
-	</li>
-
-
-	<label for="Ajout">Ajouter</label>
-	<li class="nav-item">
-		<a class="nav-link" href="{{path('ajouterFilms')}}">ajouterfilm</a>
-	</li>
-
-	<li class="nav-item">
-		<a class="nav-link" href="{{path('ajouterSeries')}}">ajouterserie</a>
-	</li>
-
-	<li class="nav-item">
-		<a class="nav-link" href="{{path('ajouterAnimes')}}">ajouteranime</a>
-	</li>
+	
 
 {% endblock %}

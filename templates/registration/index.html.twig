@@ -5,7 +5,12 @@
 
 	{{form_start(formulaire)}}
 	{{form_widget(formulaire)}}
-	<button type="submit" class="btn btn-success">S'inscrire</button>
+		{% if mode %}
+		<button type="submit" class="btn btn-warning">Modifier</button>
+	{% else %}
+		<button type="submit" class="btn btn-success">S'inscrire</button>
+	{% endif %}
+
 	{{form_end(formulaire)}}
 
 {% endblock %}

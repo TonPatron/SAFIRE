@@ -1,0 +1,50 @@
+{% extends "baseAdmin2.html.twig" %}
+
+
+
+{% block body %}
+
+	<section class="profil" >
+   
+		<div class="compte1">
+			<div class="card border-primary" style="max-width: 40rem;">
+
+				<div class="card-header info1">
+					<h2>INFORMATIONS PERSONNELLES</h2>
+				</div>
+
+				<div class="laPhotoProfil">
+					<img class="photoProfil" src="{{asset('/uploads/images/' ~ user.image) | imagine_filter('echelle') }}" alt="l'utilisateur' du momment">
+				</div>
+
+				<div class="card-body">
+
+
+					<h3 class="card-title">
+						Votre nom:
+						<h4 class="text-info">
+							{{user.prenom}}
+						</h4>
+					</h3>
+
+					<h3 class="card-title">
+						Votre prenom:
+						<h4 class="text-info">
+							{{user.nom}}
+						</h4>
+					</h3>
+
+					<h3class="card-title">
+						Votre email:
+						<h4 class="text-info">
+							{{user.email}}
+						</h4>
+					</h3>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

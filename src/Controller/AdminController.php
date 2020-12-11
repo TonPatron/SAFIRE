@@ -16,9 +16,11 @@ use App\Form\SerieAdminType;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -35,21 +37,47 @@ class AdminController extends AbstractController
         ]);
     }
 
-////////////////////////////////////////////////////INSCRIPTION///////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////INSCRIPTION///////////////////////////////////////////////////////////////////////
+
+
+
+    /**
+     * @Route("/user/profil/", name="profil")
+     */
+    public function showProfil( UserInterface $user)
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $profil= $repository->find($user->getId());
+
+
+        return $this->render('admin/profil.html.twig', [
+            'user' => $profil
+        ]);
+    }
+
 
 
     /**
      * @Route("/admin/inscriptionMembre", name="inscriptionMembre")
+     * @Route("/admin/editerMembre/{id}", name="editerMembre")
      */
-    public function creationFormulaire(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SluggerInterface $slugger)
+    public function creationFormulaire(User $user = null, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SluggerInterface $slugger)
     {
-        $user = new User;
+        if (!$user) {
+            $user = new User();
+        }
+
         $form = $this->createForm(AdminType::class, $user);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
-            $user->setInscriptionAt(new \DateTime());
+
+            if (!$user) {
+                $user->setInscriptionAt(new \DateTime());
+            }
 
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('image')->getData();
@@ -79,17 +107,66 @@ class AdminController extends AbstractController
 
             // ... persist the $user variable or any other work
 
+
             $manager->persist($user);
             $manager->flush();
             return $this->redirectToRoute('safire');
         }
+
+        $mode = false;
+        if ($user->getId() !== null) {
+            $mode = true;
+        }
+
         return $this->render('admin/inscription.html.twig', [
-            "formulaire" => $form->createView()
+            "formulaire" => $form->createView(),
+            "mode" => $mode
 
         ]);
     }
 
-////////////////////////////////////////////////////FILM///////////////////////////////////////////////////////////////////////
+
+    /**
+     * @Route("/admin/showMembres", name="showMembres")
+     */
+    public function afficheMembres()
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $users = $repository->findAll();
+
+        return $this->render('admin/showMembres.html.twig', [
+            'users' => $users
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/showLeMembre/{id}", name="showLeMembre")
+     */
+    public function afficheLeMembres($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $user = $repository->find($id);
+
+        return $this->render('admin/showLeMembre.html.twig', [
+            'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/admin/removeMembres/{id}", name="removeMembres")
+     */
+    public function deleteMembre(User $user)
+    {
+        $objectManager = $this->getDoctrine()->getManager();
+        $objectManager->remove($user);
+        $objectManager->flush();
+        return $this->redirectToRoute("showMenmbres");
+    }
+
+
+
+    ////////////////////////////////////////////////////FILM///////////////////////////////////////////////////////////////////////
 
     /**
      * @Route("/admin/addFilms", name="addFilms")
@@ -151,6 +228,7 @@ class AdminController extends AbstractController
         if ($film->getId() !== null) {
             $mode = true;
         }
+
         return $this->render('admin/createF.html.twig', [
             "formulaire" => $form->createView(),
             "mode" => $mode
@@ -199,10 +277,10 @@ class AdminController extends AbstractController
 
 
 
-/////////////////////////////////////////////////////////SERIES//////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////SERIES//////////////////////////////////////////////////////////////////
 
 
- /**
+    /**
      * @Route("/admin/addSeries", name="addSeries")
      * @Route("/admin/editSeries/{id}", name="editSeries")
      */
@@ -313,11 +391,11 @@ class AdminController extends AbstractController
 
 
 
-//////////////////////////////////////////////////////////ANIMES/////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////ANIMES/////////////////////////////////////////////////////////////////
 
 
 
- /**
+    /**
      * @Route("/admin/addAnimes", name="addAnimes")
      * @Route("/admin/editAnimes/{id}", name="editAnimes")
      */
@@ -423,47 +501,4 @@ class AdminController extends AbstractController
         $objectManager->flush();
         return $this->redirectToRoute("showAnimes");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
