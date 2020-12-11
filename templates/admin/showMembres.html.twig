@@ -1,0 +1,43 @@
+{% extends "baseAdmin2.html.twig" %}
+
+
+{% block body %}
+
+	{% for user in users %}
+		<br>
+
+		<div>
+			<a href="{{path('showLeMembre', {'id':user.id})}}">
+				<img class="imageabsolute" src="{{asset('/uploads/images/' ~ user.image) | imagine_filter('echelle') }}" alt="le films du momment">
+			</a>
+		</div>
+		<h3>{{user.prenom}}
+		</h3>
+		<h3>{{user.nom}}
+		</h3>
+
+
+		<p>La date d'inscription:
+			{{user.inscriptionAt| date("m/d/Y")}}
+		</p>
+		<div class="description">
+			<h3>Mail</h3>
+			{{user.email}}
+		</div>
+
+
+		{# <a href="#">
+				<button class="btn btn-success">Ajouter</button>
+				</a> #}
+
+		<a href="{{path('editerMembre',{'id':user.id})}}">
+			<button class="btn btn-warning">Editer</button>
+		</a>
+
+		<a href="{{path('removeMembres',{'id':user.id})}}">
+			<button class="btn btn-info">Supprimer</button>
+		</a>
+
+		<br>
+	{% endfor %}
+{% endblock %}

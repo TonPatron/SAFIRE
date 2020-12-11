@@ -31,6 +31,28 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/user/monProfil/", name="monProfil")
+     */
+    public function afficheMonProfil( UserInterface $user)
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $profil= $repository->find($user->getId());
+
+
+        return $this->render('user/monProfil.html.twig', [
+            'user' => $profil
+        ]);
+    }
+
+
+
+
+
+
+
+
+
     //////////////////////////////////////////FILM//////////////////////////////////////////////
 
 

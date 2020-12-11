@@ -13,17 +13,25 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
+use Symfony\Component\HttpFoundation\File\File;
 
 
 class RegistrationController extends AbstractController
 {
     /**
      * @Route("/registration", name="registration")
+     * @Route("/admin/editerUser/{id}", name="editerUser")
      */
-    public function creationFormulaire(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SluggerInterface $slugger)
+
+    public function creationFormulaire(User $user = null, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SluggerInterface $slugger)
     {
-        $user = new User;
+
+       /*  dd($request->attributes->get('id')); */
+
+        if (!$user) {
+            $user = new User();
+        }
+        
         $form = $this->createForm(RegistrationType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,9 +71,17 @@ class RegistrationController extends AbstractController
             $manager->flush();
             return $this->redirectToRoute('app_login');
         }
-        return $this->render('registration/index.html.twig', [
-            "formulaire" => $form->createView()
 
+        $mode = false;
+        if ($user->getId() !== null) {
+            $mode = true;
+        }
+
+        return $this->render('registration/index.html.twig', [
+            "formulaire" => $form->createView(),
+            "mode" => $mode
         ]);
+
+        
     }
 }

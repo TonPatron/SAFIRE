@@ -1,30 +1,37 @@
-
-
 {% block body %}
 
 	{% for anime in animes %}
 		<br>
 
-		<h3>{{anime.titre}}
-		</h3>
 
-		<div>
-			<a href="{{path('montrerLanime', {'id':anime.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'anime's du momment">
-			</a>
+		<div class="card mb-3" style="max-width: 1500px; margin-left:5px">
+			<div class="row no-gutters">
+
+				<div class="col-md-2">
+					<a href="{{path('montrerLanime', {'id':anime.id})}}">
+						<img class="imageabsolute" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'anime's du momment">
+					</a>
+				</div>
+
+				<div class="col-md-10">
+					<div class="card-body">
+						<h5 class="card-title">{{anime.titre}}</h5>
+
+						<p>Sort le:
+							{{anime.dateDeSortieAt| date("m/d/Y")}}
+						</p>
+
+						<div class="description">
+							<h5>Description</h5>
+							{{anime.description|raw}}
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 		</div>
-		<p>La date:
-			{{anime.dateDeSortieAt| date("m/d/Y")}}
-		</p>
-		<div class="description">
-			<h3>Description</h3>
-			{{anime.description|raw}}
-		</div>
 
-
-		{# <a href="#">
-		<button class="btn btn-success">Ajouter</button>
-		</a> #}
 
 		<a href="{{path('modifierAnimes',{'id':anime.id})}}">
 			<button class="btn btn-warning">Editer</button>
@@ -32,8 +39,8 @@
 
 		<a href="{{path('supprimeAnimes',{'id':anime.id})}}">
 			<button class="btn btn-info">Supprimer</button>
-		</a> 
-		
+		</a>
+
 		<br>
 	{% endfor %}
 {% endblock %}

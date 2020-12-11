@@ -190,17 +190,17 @@
 		<!--/.Controls-->
 
 		<!--Slides-->
-		<div
-			class="carousel-inner" role="listbox">
-
-			{# premier slide #}
-
+		<div class="carousel-inner" role="listbox">
+ 
 			<div class="carousel-item active">
 				<div class="row">
+	{# {{dump(films)}}; #}			
 					<div class="col-md-4">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								{# <a href="{{path('afficheLeFilm', {'id':films.id})}}"> #}
+									<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								{# </a> #}
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">{{films[n].titre}}</h5>
@@ -256,7 +256,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="">
+									<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>
@@ -268,7 +270,9 @@
 					<div class="col-md-4 clearfix d-none d-md-block">
 						<div class="card mb-2">
 							<div class="toopit">
-								<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								<a href="">
+									<img class="card-img-top" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+								</a>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">Titre:{{films[n].titre}}</h5>

@@ -67,9 +67,26 @@ class SafireController extends AbstractController
         return $this->render('safire/index.html.twig');
     }
 
+    /**
+     * @Route("/mentionLegale", name="mentionLegale")
+     */
+    public function mentionLegale()
+    {
+        return $this->render('security/mentionLegale.html.twig');
+    }
+
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cgu()
+    {
+        return $this->render('security/cgu.html.twig');
+    }
 
 
 
+
+    
 
     ////////////////////////////////////////AFFICHAGE///////////////////////////////////////////////////
 
