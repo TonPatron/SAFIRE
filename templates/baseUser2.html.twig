@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+{# 
+{{dump(app.user)}} #}
 
 	<head>
 		{% block stylesheet %}
@@ -33,11 +35,13 @@
 	</head>
 
 	<body
+
+
 		id="page-top">
 
 		<!-- Page Wrapper -->
-		<div
-			id="wrapper">
+		<div id="wrapper">
+
 
 			<!-- Sidebar -->
 			<ul
@@ -85,7 +89,7 @@
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Mon Compte:</h6>
 							<a class="collapse-item" href="{{path('monProfil')}}">Mon profil</a>
-							<a class="collapse-item" href="{{path('editerUser',{'id':user.id})}}">Modifier mon profil</a>
+							<a class="collapse-item" href="{{path('editerUser',{'id':app.user.id})}}">Modifier mon profil</a>
 
 						</div>
 						<div class="bg-white py-2 collapse-inner rounded">

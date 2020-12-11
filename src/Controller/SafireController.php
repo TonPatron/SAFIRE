@@ -81,7 +81,9 @@ class SafireController extends AbstractController
     public function afficheAllFilms()
     {
         $repository = $this->getDoctrine()->getRepository(Film::class);
-        $films = $repository->findAll();
+        $films = $repository->findAll([
+            
+        ]);
 
         return $this->render('safire/afficheAllFilms.html.twig', [
             'films' => $films

@@ -2,38 +2,8 @@
 
 
 {% block body %}
-	{#LES PROCHAINS ANIMES EN VU #}
-	{% set n = 0 %}
 
-	<div>
-		<a href="{{path('afficheAllAnimes')}}">
-			<h5>Voir le catalogue des prochains</h5>
-			<h4 class="h42">Animes</h4>
-		</a>
-	</div>
-	<div
-		id="carouselAnime" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-		<!--Controls-->
-		<div class="controls-top">
-			<a class="btn-floating" href="#carouselAnime" data-slide="prev">
-				<i class="fa fa-chevron-left"></i>
-			</a>
-			<a class="btn-floating" href="#carouselAnime" data-slide="next">
-				<i class="fa fa-chevron-right"></i>
-			</a>
-		</div>
-		<!--/.Controls-->
-
-		<!--Indicators-->
-		<ol class="carousel-indicators">
-			<li data-target="#carouselAnime" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselAnime" data-slide-to="1"></li>
-			<li data-target="#carouselAnime" data-slide-to="2"></li>
-		</ol>
-		<!--/.Indicators-->
-
-		<!--Slides-->
 		<div class="carousel-inner" role="listbox">
 
 			<a href="{{path('afficheAllFilms')}}">
@@ -46,47 +16,6 @@
 				<h3>ANIME</h3>
 			</a>
 
-			<div class="carousel-item active">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-2">
-							<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
-							<div class="card-body">
-								<h4 class="card-title">{# {{animes.n.titre}} #}</h4>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-																																																																																																																																													                    card's content.</p>
-								<a class="btn btn-primary">Button</a>
-							</div>
-						</div>
-					</div>
-					{# {% set n = n +1 %} #}
-					<div class="col-md-4 clearfix d-none d-md-block">
-						<div class="card mb-2">
-							<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
-							<div class="card-body">
-								<h4 class="card-title">{# {{animes.n.titre}} #}</h4>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-																																																																																																																																													                    card's content.</p>
-								<a class="btn btn-primary">Button</a>
-							</div>
-						</div>
-					</div>
-					{# {% set n = n +1 %} #}
-					<div class="col-md-4 clearfix d-none d-md-block">
-						<div class="card mb-2">
-							<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
-							<div class="card-body">
-								<h4 class="card-title">{# {{animes.n.titre}} #}</h4>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-																																																																																																																																													                    card's content.</p>
-								<a class="btn btn-primary">Button</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		{% set n = n +1 %}
+			
 
 	{% endblock %}
