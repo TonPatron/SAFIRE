@@ -1,6 +1,10 @@
 body{
     background-color: rgb(3, 3, 3);
 
+
+/* HEADER */
+
+
 }   
 #nav{
      /* background: url("../image/safire.jpg");  */
@@ -9,7 +13,7 @@ body{
 }
    .bcg{
     width: 100%;
-    height: 550px;
+   
 }    
 .droite{
     align-items: center;
@@ -21,11 +25,7 @@ body{
     align-items: center;
     justify-content: center;
 }
-.clr{
-    background-color: rgb(168, 162, 162);
-    
 
-}
 .logo{
 padding-right: 20%;
 width: auto;
@@ -38,16 +38,83 @@ height: 90px;
     height: 90px;
     }
 
+
+
+/* MAIN */
+
+    
+.clr{
+    background-color:#f0f0f0;
+     
+}
+
+.title h3{
+    color: black; 
+}
+
+/* FOOTER */
+
+
+
 .foot{
      /* background :url("../image/safire.jpg") ;   */
      /* background-color: black; */
-    color: rgb(217, 219, 241);
+    
     height: 200px;
     width: 100%;
     display: flex;
     justify-content: space-around;  
+    padding: 2%;
  }
  .rez{
      display: flex;
      flex-direction: column;
  }
+
+ .rez h6{
+     color: #f0f0f0;
+ }
+
+
+ /* PROFIL */
+
+ .profil{
+    background-image: url("../image/serie.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.laPhotoProfil{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.photoProfil{
+    
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.compte1{
+    
+    padding: 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+

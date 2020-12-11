@@ -1,0 +1,26 @@
+{% extends "baseAdmin2.html.twig" %}
+
+
+{% block body %}
+
+
+		<div>
+			<a href="{{path('showLeMembre', {'id':user.id})}}">
+				<img class="imageabsolute" src="{{asset('/uploads/images/' ~ user.image) | imagine_filter('echelle') }}" alt="le films du momment">
+			</a>
+		</div>
+		<h3>{{user.prenom}}
+		</h3>
+		<h3>{{user.nom}}
+		</h3>
+
+
+		<p>La date d'inscription:
+			{{user.inscriptionAt| date("m/d/Y")}}
+		</p>
+		<div class="description">
+			<h3>Mail</h3>
+			{{user.email}}
+		</div>
+
+{% endblock %}

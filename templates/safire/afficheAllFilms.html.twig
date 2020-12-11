@@ -1,20 +1,20 @@
-{% extends "base2.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block body %}
 
 	{% for film in films %}
 		<br>
 
-		<div class="card mb-3" style="max-width: 1500px; margin-left:5px">
+		<div class="card mb-3" style="max-width: 1500px; margin-left:5px; border: 1px solid #2290cf">
 			<div class="row no-gutters">
 
-				<div class="col-md-2">
+				<div class="col-md-3">
 					<a href="{{path('afficheLeFilm', {'id':film.id})}}">
 						<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
 					</a>
 				</div>
 
-				<div class="col-md-10">
+				<div class="col-md-9">
 					<div class="card-body">
 						<h5 class="card-title">{{film.titre}}</h5>
 

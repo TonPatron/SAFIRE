@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\HttpFoundation\File\File;
 
 class AdminType extends AbstractType
 {
@@ -38,7 +39,7 @@ class AdminType extends AbstractType
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
             ->add('confirmePassword', PasswordType::class)
-            ->add('image', FileType::class, ['label' => 'Image (JPG, PNG)']);
+            ->add('image', FileType::class, ['label' => 'Image (JPG, PNG)', 'data_class' => null, 'required' => false]);
         // ->add('inscriptionAt');
     }
 

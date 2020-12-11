@@ -30,14 +30,31 @@ class SafireController extends AbstractController
         return $this->render('safire/index.html.twig');
     }
 
+    /**
+     * @Route("/mentionLegale", name="mentionLegale")
+     */
+    public function mentionLegale()
+    {
+        return $this->render('security/mentionLegale.html.twig');
+    }
+
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cgu()
+    {
+        return $this->render('security/cgu.html.twig');
+    }
 
 
 
 
-////////////////////////////////////////AFFICHAGE///////////////////////////////////////////////////
+    
+
+    ////////////////////////////////////////AFFICHAGE///////////////////////////////////////////////////
 
 
-////////////////Film////////////////////
+    ////////////////Film////////////////////
 
 
     /**
@@ -67,7 +84,7 @@ class SafireController extends AbstractController
         ]);
     }
 
-////////////////Serie////////////////////
+    ////////////////Serie////////////////////
 
     /**
      * @Route("/safire/afficheAllSeries", name="afficheAllSeries")
@@ -96,7 +113,7 @@ class SafireController extends AbstractController
         ]);
     }
 
-////////////////Anime////////////////////
+    ////////////////Anime////////////////////
 
     /**
      * @Route("/safire/afficheAllAnimes", name="afficheAllAnimes")
@@ -126,7 +143,7 @@ class SafireController extends AbstractController
     }
 
 
-////////////////////////////////////////RECHERCHE///////////////////////////////////////////////////
+    ////////////////////////////////////////RECHERCHE///////////////////////////////////////////////////
 
 
 

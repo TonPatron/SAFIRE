@@ -1,19 +1,19 @@
-{% extends "base2.html.twig" %}
+{% extends "base.html.twig" %}
 {% block body %}
 
 	{% for serie in series %}
 		<br>
 
-		<div class="card mb-3" style="max-width: 1500px; margin-left:5px">
+		<div class="card mb-3" style="max-width: 1500px; margin-left:5px; border: 1px solid #2290cf">
 			<div class="row no-gutters">
 
-				<div class="col-md-2">
+				<div class="col-md-3">
 					<a href="{{path('afficheLaSerie', {'id':serie.id})}}">
 						<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="la series du momment">
 					</a>
 				</div>
 
-				<div class="col-md-10">
+				<div class="col-md-9">
 					<div class="card-body">
 						<h5 class="card-title">{{serie.titre}}</h5>
 
