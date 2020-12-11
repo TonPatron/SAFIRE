@@ -1,3 +1,5 @@
+{% extends 'baseUser2.html.twig' %}
+
 {% block body %}
 
 	{% for film in films %}
@@ -31,7 +33,7 @@
 			</div>
 		</div>
 
-}
+
 
 		<a href="{{path('modifierFilms',{'id':film.id})}}">
 			<button class="btn btn-warning">Editer</button>

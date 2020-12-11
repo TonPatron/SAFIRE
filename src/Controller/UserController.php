@@ -109,7 +109,7 @@ class UserController extends AbstractController
 
             $objectManager->persist($film);
             $objectManager->flush();
-            return $this->redirectToRoute("user");
+            return $this->redirectToRoute("ajouterFilms");
         }
 
         $mode = false;
@@ -219,7 +219,7 @@ class UserController extends AbstractController
 
             $objectManager->persist($serie);
             $objectManager->flush();
-            return $this->redirectToRoute("user");
+            return $this->redirectToRoute("ajouterSeries");
         }
 
         $mode = false;
@@ -330,7 +330,7 @@ class UserController extends AbstractController
 
             $objectManager->persist($anime);
             $objectManager->flush();
-            return $this->redirectToRoute("user");
+            return $this->redirectToRoute("ajouterAnimes");
         }
 
         $mode = false;

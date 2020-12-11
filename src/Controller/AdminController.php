@@ -28,7 +28,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin55555", name="admin")
      */
     public function index(): Response
     {
