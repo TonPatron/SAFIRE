@@ -21,17 +21,36 @@ class SafireController extends AbstractController
     public function index(): Response
     {
 
-         $repository = $this->getDoctrine()->getRepository(Anime::class);
-         $animes = $repository->findBy(
-             array(),
-             array('dateDeSortieAt' => 'ASC'),
-              9,0);
+        $repositoryAnime = $this->getDoctrine()->getRepository(Anime::class);
+        $animes = $repositoryAnime->findBy(
+            array(),
+            array('dateDeSortieAt' => 'DESC'),
+            9,
+            0
+        );
+        $repositoryFilm = $this->getDoctrine()->getRepository(Film::class);
+        $films = $repositoryFilm->findBy(
+            array(),
+            array('dateDeSortieAt' => 'DESC'),
+            9,
+            0
+        );
+        $repositorySerie = $this->getDoctrine()->getRepository(Serie::class);
+        $series = $repositorySerie->findBy(
+            array(),
+            array('dateDeSortieAt' => 'DESC'),
+            9,
+            0
+        );
         return $this->render('safire/index.html.twig', [
             'controller_name' => 'SafireController',
             'animes' => $animes,
-        
+            'films' => $films,
+            'series' => $series
+
         ]);
     }
+
 
 
 
