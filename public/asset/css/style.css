@@ -1,3 +1,30 @@
+/* Shine */
+
+hr.hr-4 {
+    padding: 0;
+    border: none;
+    border-top: medium double #8c8c8c;
+    color: #8c8c8c;
+    text-align: center;
+}
+
+hr.hr-4:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: rgba(0, 0, 0, 0.787);
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.787);
+}
+
+.h42 {
+    color: rgba(255, 0, 0, 0.719);
+}
 body{
     background-color: rgb(3, 3, 3);
 
@@ -70,6 +97,7 @@ height: 90px;
      display: flex;
      flex-direction: column;
  }
+<<<<<<< HEAD
 
  .rez h6{
      color: #f0f0f0;
@@ -118,3 +146,5 @@ height: 90px;
 
 
 
+=======
+>>>>>>> c33c1470b5144be9fb9b1b4907c0d974da86dc35
