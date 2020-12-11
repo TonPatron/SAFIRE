@@ -36,13 +36,48 @@ height: 90px;
 .foot{
      /* background :url("../image/safire.jpg") ;   */
      /* background-color: black; */
-    color: rgb(217, 219, 241);
+    color: rgb(168, 162, 162);
     height: 200px;
     width: 100%;
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-around;
  }
  .rez{
      display: flex;
      flex-direction: column;
+     color: rgb(168, 162, 162);
  }
+
+
+/* mainnnnnnn */
+
+body,
+        html {
+            height: 100%;
+            background-color: black;
+        }
+
+       
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .foot{
+            
+           background-color: black; 
+           color: rgb(168, 162, 162);
+           height: 200px;
+           width: 100%;
+           display: flex;
+           justify-content: space-around;
+        }
+        .rez{
+            display: flex;
+            flex-direction: column;
+            color: rgb(168, 162, 162);
+        }
+    
+
+
+ 
