@@ -30,7 +30,7 @@
 					<ul class="navbar-nav mr-auto">
 
 						<li class="nav-item">
-							<a class="nav-link" href="{{path('safire')}}">HOME</a>
+							<a class="nav-link" href="{{path('safire')}}">ACCUEIL</a>
 						</li>
 
 						<li class="nav-item">
@@ -49,7 +49,7 @@
 
 						<li class="nav-item">
 							{% if is_granted("ROLE_ADMIN") %}
-								<a class="nav-link" href="{{ path('admin') }}">AMIN</a>
+								<a class="nav-link" href="{{ path('admin') }}">ADMIN</a>
 							{% endif %}
 						</li>
 
@@ -86,31 +86,32 @@
 				<div class="foot">
 					<div class="rez">
 						<h6>LEGAL</h6>
-						<a href="#">
+						<a href="{{path('security/mentionLegale.html.twig')}}">
 							Politique de confidentialité</a>
-						<a href="#">Conditions générales d'utilisation</a>
+						<a href="{{path('security/cgu.html.twig')}}">Conditions générales d'utilisation</a>
 						<a href="#">Ayant-droits</a>
 					</div>
 					<div class="rez">
 						<h6>SUPPORT</h6>
-						<a href="#">Foire aux questions</a>
 						<a href="#">Contactez-nous</a>
 					</div>
 					<div class="rez">
 						<h6>SUIVEZ-NOUS</h6>
+						<a href="{{path('UCOD6BYwth5IUthWinrqVQrg')}}">
+							<i class="fab fa-youtube">Youtube</i>
+						</a>
 						<a href="#">
-							<i class="fab fa-instagram">
-								Instagram</i>
+							<i class="fab fa-instagram"></i>
 						</a>
 						<a href="#">
 							<i class="fab fa-linkedin-in">
 								Linkedin</i>
 						</a>
-						<a href="#">
+						<a href="{{path('https://twitter.com/SAFIRE63821209')}}">
 							<i class="fab fa-twitter">
 								Twitter</i>
 						</a>
-						<a href="#">
+						<a href="{{path('https://www.facebook.com/saf.ire.982')}}">
 							<i class="fab fa-facebook-f">
 								Facebook</i>
 						</a>
