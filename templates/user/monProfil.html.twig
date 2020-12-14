@@ -1,11 +1,10 @@
 {% extends "baseUser2.html.twig" %}
 
 
-
 {% block body %}
 
-	<section class="profil" >
-   
+	<section class="profil">
+
 		<div class="compte1">
 			<div class="card border-primary" style="max-width: 40rem;">
 
@@ -34,16 +33,16 @@
 						</h4>
 					</h3>
 
-					<h3class="card-title">
+					<h3 class="card-title">
 						Votre email:
 						<h4 class="text-info">
 							{{user.email}}
 						</h4>
 					</h3>
 
-		<a href="{{path('editerUser',{'id':user.id})}}">
-			<button class="btn btn-warning">Editer</button>
-		</a>
+					<a href="{{path('editerUser',{'id':user.id})}}">
+						<button class="btn btn-warning">Editer</button>
+					</a>
 
 				</div>
 			</div>

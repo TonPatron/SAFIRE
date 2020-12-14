@@ -246,6 +246,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/showFilms.html.twig', [
             'films' => $films
+            
         ]);
     }
 

@@ -1,23 +1,39 @@
-
+{% extends 'baseUser2.html.twig' %}
 
 {% block body %}
 
-		<br>
 
-		<h5>{{serie.titre}}
-		</h5>
+	<div class="container">
 
-		<div>
-			<a href="{{path('montrerLaSerie', {'id':serie.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="le series du momment">
-			</a>
+		<section class="row">
+
+
+			<div class="col-12 col-md-6 col-lg-4">
+				<a href="{{path('montrerLaSerie', {'id':serie.id})}}">
+					<img class="imageAffichage" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="le series du momment">
+				</a>
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-6">
+				<h5>{{serie.titre}}</h5>
+
+				<p>Sort le:
+					{{serie.dateDeSortieAt| date("d/m/Y")}}
+				</p>
+				<div class="description">
+					<h5>Description</h5>
+					{{serie.description|raw}}
+				</div>
+			</div>
+
+		</section>
+
+		<hr class=" bg-info">
+
+		<div class="trailler col-12">
+			{{serie.video}}
 		</div>
-		<p>Sort le:
-			{{serie.dateDeSortieAt| date("m/d/Y")}}
-		</p>
-		<div class="description">
-			<h5>Description</h5>
-			{{serie.description|raw}}
-		</div>
 
+	</div>
+	
 {% endblock %}

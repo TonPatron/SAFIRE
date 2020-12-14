@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\FilmRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FilmRepository;
 
 /**
  * @ORM\Entity(repositoryClass=FilmRepository::class)
@@ -46,6 +47,13 @@ class Film
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="films")
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $video;
+
+ 
 
 
     public function getId(): ?int
@@ -124,4 +132,18 @@ class Film
 
         return $this;
     }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?string $video): self
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+
 }

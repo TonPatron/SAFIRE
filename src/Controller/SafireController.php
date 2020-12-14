@@ -100,7 +100,9 @@ class SafireController extends AbstractController
     public function afficheAllFilms()
     {
         $repository = $this->getDoctrine()->getRepository(Film::class);
-        $films = $repository->findAll();
+        $films = $repository->findBy(
+            array(),
+            array('dateDeSortieAt' => 'DESC'));
 
         return $this->render('safire/afficheAllFilms.html.twig', [
             'films' => $films
@@ -129,7 +131,9 @@ class SafireController extends AbstractController
     public function afficheAllSeries()
     {
         $repository = $this->getDoctrine()->getRepository(Serie::class);
-        $series = $repository->findAll();
+        $series = $repository->findBy(
+            array(),
+            array('dateDeSortieAt' => 'DESC'));
 
         return $this->render('safire/afficheAllSeries.html.twig', [
             'series' => $series
@@ -158,7 +162,10 @@ class SafireController extends AbstractController
     public function afficheAllAnimes()
     {
         $repository = $this->getDoctrine()->getRepository(Anime::class);
-        $animes = $repository->findAll();
+        $animes = $repository->findBy(
+        array(),
+        array('dateDeSortieAt' => 'DESC')
+    );
 
         return $this->render('safire/afficheAllAnimes.html.twig', [
             'animes' => $animes

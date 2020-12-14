@@ -27,6 +27,7 @@ class RegistrationController extends AbstractController
     {
 
        /*  dd($request->attributes->get('id')); */
+       
 
         if (!$user) {
             $user = new User();
