@@ -17,6 +17,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class UserController extends AbstractController
@@ -34,10 +35,10 @@ class UserController extends AbstractController
     /**
      * @Route("/user/monProfil/", name="monProfil")
      */
-    public function afficheMonProfil( UserInterface $user)
+    public function afficheMonProfil(UserInterface $user)
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $profil= $repository->find($user->getId());
+        $profil = $repository->find($user->getId());
 
 
         return $this->render('user/monProfil.html.twig', [
@@ -60,7 +61,7 @@ class UserController extends AbstractController
      * @Route("/user/ajouterFilms", name="ajouterFilms")
      * @Route("/user/modifierFilms/{id}", name="modifierFilms")
      */
-    public function formuFilms(Film $film = null, Request $request, ObjectManager $objectManager, SluggerInterface $slugger, UserInterface $user)
+    public function formuFilms(Film $film = null,  Request $request, ObjectManager $objectManager, SluggerInterface $slugger, UserInterface $user)
     {
         //$Films = new Films(); //est null de base à la difference de l'élement cidessus
 
@@ -130,7 +131,7 @@ class UserController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
         $films = $repository->findFilmByUser($user->getId());
-        
+
         return $this->render('user/montrerFilms.html.twig', [
             'films' => $films
         ]);
@@ -163,7 +164,7 @@ class UserController extends AbstractController
     }
 
 
- //////////////////////////////////////////SERIE//////////////////////////////////////////////
+    //////////////////////////////////////////SERIE//////////////////////////////////////////////
 
 
     /**
@@ -240,7 +241,7 @@ class UserController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
         $series = $repository->findSerieByUser($user->getId());
-        
+
         return $this->render('user/montrerSeries.html.twig', [
             'series' => $series
         ]);
@@ -274,7 +275,7 @@ class UserController extends AbstractController
 
 
 
-//////////////////////////////////////////ANIME//////////////////////////////////////////////
+    //////////////////////////////////////////ANIME//////////////////////////////////////////////
 
 
     /**
@@ -351,7 +352,7 @@ class UserController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
         $animes = $repository->findAnimeByUser($user->getId());
-        
+
         return $this->render('user/montrerAnimes.html.twig', [
             'animes' => $animes
         ]);
@@ -382,27 +383,4 @@ class UserController extends AbstractController
         $objectManager->flush();
         return $this->redirectToRoute("montrerAnimes");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

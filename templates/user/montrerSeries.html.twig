@@ -5,21 +5,21 @@
 	{% for serie in series %}
 		<br>
 
-		<div class="card mb-3" style="max-width: 1500px; margin-left:5px">
+		<div class="card mb-4" style="max-width: 1500px; margin-left:5px">
 			<div class="row no-gutters">
 
-				<div class="col-md-2">
+				<div class="col-md-6 col-lg-2">
 					<a href="{{path('montrerLaSerie', {'id':serie.id})}}">
-						<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="le series du momment">
+						<img class="imageAffichage" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="le series du momment">
 					</a>
 				</div>
 
-				<div class="col-md-10">
+				<div class="col-md-6 col-lg-10">
 					<div class="card-body">
 						<h5 class="card-title">{{serie.titre}}</h5>
 
 						<p>Sort le:
-							{{serie.dateDeSortieAt| date("m/d/Y")}}
+							{{serie.dateDeSortieAt| date("d/m/Y")}}
 						</p>
 
 						<div class="description">

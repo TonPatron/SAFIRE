@@ -18,9 +18,13 @@ class FilmAdminType extends AbstractType
             ->add('titre')
             ->add('imageFilm', FileType::class, ['label' => 'Image (JPG, PNG)','data_class' => null,'required' => false])
             ->add('description')
-            ->add('dateDeSortieAt', DateTimeType::class);
+            ->add('dateDeSortieAt', DateTimeType::class, [
+                'widget' => 'single_text'
+         ])
+            ->add('video')
             //->add('ajouter', ChoiceType::class)
             //->add('categorie', ChoiceType::class)
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

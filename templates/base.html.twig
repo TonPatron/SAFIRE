@@ -15,17 +15,16 @@
 
 		<header class="bcg">
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
 
-			<nav class="navbar navbar-expand-lg " id="nav">
+  <a class="navbar-brand logo" href="{{path('safire')}}"><img class="imgLogo" src="{{asset('asset/image/logo.png')}}" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-				<a class="navbar-brand" href="#"></a>
 
-				<div class="collapse navbar-collapse  " id="navbarColor03">
-
-					<div class="logo">
-						<a href="{{path('safire')}}"><img class="imgLogo" src="{{asset('asset/image/logo.png')}}" alt=""></a>
-					</div>
-
+				<div class="collapse navbar-collapse  " id="navbarColor02">
+					
 
 					<ul class="navbar-nav mr-auto">
 
@@ -116,6 +115,7 @@
 				</div>
 			</div>
 		</footer>
+
 		{% block javascripts %}
 			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

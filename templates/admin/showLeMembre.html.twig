@@ -6,7 +6,7 @@
 
 		<div>
 			<a href="{{path('showLeMembre', {'id':user.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/images/' ~ user.image) | imagine_filter('echelle') }}" alt="le films du momment">
+				<img class="imageAffichage" src="{{asset('/uploads/images/' ~ user.image) | imagine_filter('echelle') }}" alt="le films du momment">
 			</a>
 		</div>
 		<h3>{{user.prenom}}
@@ -16,7 +16,7 @@
 
 
 		<p>La date d'inscription:
-			{{user.inscriptionAt| date("m/d/Y")}}
+			{{user.inscriptionAt| date("d/m/Y")}}
 		</p>
 		<div class="description">
 			<h3>Mail</h3>

@@ -10,11 +10,11 @@
 
 	<div>
 		<a href="{{path('showLaSerie', {'id':serie.id})}}">
-			<img class="imageabsolute" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="la series du momment">
+			<img class="imageAffichage" src="{{asset('/uploads/imageSeries/' ~ serie.imageSerie) | imagine_filter('echelle') }}" alt="la series du momment">
 		</a>
 	</div>
 	<p>La date:
-		{{serie.dateDeSortieAt| date("m/d/Y")}}
+		{{serie.dateDeSortieAt| date("d/m/Y")}}
 	</p>
 	<div class="description">
 		<h3>Description</h3>

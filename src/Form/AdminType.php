@@ -35,7 +35,9 @@ class AdminType extends AbstractType
                 ]
 
             ])
-            ->add('birthday', BirthdayType::class)
+            ->add('birthday', BirthdayType::class, [
+                'widget' => 'single_text'
+         ])
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
             ->add('confirmePassword', PasswordType::class)

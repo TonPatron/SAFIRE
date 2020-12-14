@@ -10,7 +10,7 @@
 
 				<div class="col-md-3">
 					<a href="{{path('afficheLeFilm', {'id':film.id})}}">
-						<img class="imageabsolute" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
+						<img class="imageAffichage" src="{{asset('/uploads/imageFilms/' ~ film.imageFilm) | imagine_filter('echelle') }}" alt="le films du momment">
 					</a>
 				</div>
 
@@ -19,7 +19,7 @@
 						<h5 class="card-title">{{film.titre}}</h5>
 
 						<p>Sort le:
-							{{film.dateDeSortieAt| date("m/d/Y")}}
+							{{film.dateDeSortieAt| date("d/m/Y")}}
 						</p>
 
 						<div class="description">

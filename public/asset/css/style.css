@@ -52,31 +52,6 @@ body {
     height: 90px;
 }
 
-.foot {
-    /* background :url("../image/safire.jpg") ;   */
-    /* background-color: black; */
-    color: rgb(217, 219, 241);
-    height: 200px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.toopit {
-    overflow: hidden;
-    width: 100%;
-    height: 300px;
-}
-
-.toopit img {
-    min-width: 100%;
-    height: 300px;
-}
-
-.caranime {
-    width: 100%;
-    max-height: 200%;
-}
 
 .logo{
 padding-right: 20%;
@@ -104,9 +79,61 @@ height: 90px;
     color: black; 
 }
 
+.toopit {
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+}
+
+.toopit img {
+    min-width: 100%; 
+}
+
+.caranime {
+    width: 100%;
+    max-height: 200%;
+}
+
+.card-title{
+    min-height: 87px;
+}
+
+.about{
+    margin: 50px 0 0 0;
+    background-color:#238fb5;
+    padding: 30px 50px;
+    font-size:100%;
+}
+.about h6{
+font-size: 2em;
+padding: 0 30px;
+font-weight: bolder;
+}
+
+.about p{
+font-size: 19px;
+line-height: 25px;
+} 
+
+@media screen and ( min-width: 576px){
+   .about p{
+       padding: 0 60px;
+} 
+}
+
 /* FOOTER */
 
 
+/* .foot {
+     background :url("../image/safire.jpg") ;  
+   background-color: black; 
+    color: rgb(217, 219, 241);
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+ */
 
 .foot{
      /* background :url("../image/safire.jpg") ;   */
@@ -118,11 +145,52 @@ height: 90px;
     justify-content: space-around;  
     padding: 2%;
  }
+
  .rez{
      display: flex;
      flex-direction: column;
      color: rgb(168, 162, 162);
  }
+
+#section2{
+border: 1px solid red;
+background-color: #e2e4e76e;
+width: 5%;
+position: absolute;
+right: 1px;
+top: 2930px;
+z-index: 20;
+}
+
+/* @media screen and (min-width: 576px){
+    #section2{
+        top: 3110px;
+ }
+} */
+
+
+#section1{
+border: 1px solid red;
+background-color: #e2e4e76e;
+width: 5%;
+position: absolute;
+right: 1px;
+bottom: 360px;
+z-index: 20;
+}
+
+/* @media screen and (min-width: 576px){
+
+    #section1{
+bottom: 120px;
+}
+
+@media screen and (min-width: 720px){
+    #section2{
+        top: 480px;
+ }
+} */
+
 
 
 /* mainnnnnnn */
@@ -156,13 +224,19 @@ body,
     
 
 
- 
- 
 
  .rez h6{
      color: #f0f0f0;
  }
 
+
+
+ /* AFFICHAGE */
+
+ .imageAffichage{
+     max-width: 210px;
+     max-height: 300px;
+ }
 
  /* PROFIL */
 

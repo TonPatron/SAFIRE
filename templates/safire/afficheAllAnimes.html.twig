@@ -11,7 +11,7 @@
 
 		<div class="col-md-3">
 			<a href="{{path('afficheLanime', {'id':anime.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'animes du momment">
+				<img class="imageAffichage" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'animes du momment">
 			</a>
 		</div>
 
@@ -20,7 +20,7 @@
 				<h5 class="card-title">{{anime.titre}}</h5>
 
 				<p>Sort le:
-					{{anime.dateDeSortieAt| date("m/d/Y")}}
+					{{anime.dateDeSortieAt| date("d/m/Y")}}
 				</p>
 
 				<div class="description">

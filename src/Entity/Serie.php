@@ -47,6 +47,11 @@ class Serie
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $video;
+
 
     public function getId(): ?int
     {
@@ -121,6 +126,18 @@ class Serie
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }

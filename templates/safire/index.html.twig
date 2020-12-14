@@ -4,607 +4,495 @@
 {% block body %}
 
 
-	<body>
+	{# style DEBUT #}
+	<style>
+		.parallax {
+			/* The image used */
+
+			background-image: url("{{asset('asset/image/serie.jpg')}}");
+
+			/* Full height */
+			height: 350px;
+
+			/* Create the parallax scrolling effect */
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.parallax1 {
+			/* The image used */
+
+			background-image: url("{{asset('asset/image/anime.jpg')}}");
+
+			/* Full height */
+			height: 350px;
+
+			/* Create the parallax scrolling effect */
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.parallax2 {
+			/* The image used */
+
+			background-image: url("{{asset('asset/image/film.jpg')}}");
+
+			/* Full height */
+			height: 350px;
+
+			/* Create the parallax scrolling effect */
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+	{# style FIN #}
 
 
-		{# style DEBUT #}
-		<style>
-			.parallax {
-				/* The image used */
+	{# Bouton DEBUT #}
 
-				background-image: url("{{asset('asset/image/serie.jpg')}}");
+	<div class="main" id="section1">
 
-				/* Full height */
-				height: 350px;
+		<a href="#section2">
+			<i class="fas fa-chevron-double-down" style="color: red; display: flex; justify-content: center; width: 100%; height: 50px;align-items: center;"></i>
+		</a>
 
-				/* Create the parallax scrolling effect */
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
+	</div>
 
-			.parallax1 {
-				/* The image used */
+	{# Bouton FIN #}
 
-				background-image: url("{{asset('asset/image/anime.jpg')}}");
+	<main
+		class="clr">
+		{# parallax serie DEBUT #}
+		<div class="parallax "></div>
 
-				/* Full height */
-				height: 350px;
-
-				/* Create the parallax scrolling effect */
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
-
-			.parallax2 {
-				/* The image used */
-
-				background-image: url("{{asset('asset/image/film.jpg')}}");
-
-				/* Full height */
-				height: 350px;
-
-				/* Create the parallax scrolling effect */
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
-		</style>
-		{# style FIN #}
+		<div>
 
 
-		{# Bouton DEBUT #}
-{# 		<div class="main" id="section1">
-
-
-			<a href="#section2">
-				<i class="fas fa-chevron-double-down" style="color: red; display: flex; justify-content: center; width: 100%; height: 150px;"></i>
-			</a>
-
-		</div> #}
-		{# Bouton FIN #}
-
-		<main class="clr">
-			
-			{# parallax serie DEBUT #}
-			<div class="parallax "></div>
+			{#Debut de nos Séries / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
 
 			<div>
+				{% set n = 0 %}
 
-
-				{#Debut de nos Séries / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
-
-				<div>
-					{% set n = 0 %}
-
-					<a href="{{path('afficheAllSeries')}}">
-						<h5 class="h52">Voir le catalogue des prochaines</h5>
-						<h4 class="h42">Series</h4>
-					</a>
-				</div>
-
-				<div
-					id="carouselSerie" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-
-					<!--Controls-->
-					<div class="controls-top">
-						<a class="btn-floating" href="#carouselSerie" data-slide="prev">
-							<i class="fa fa-chevron-left"></i>
-						</a>
-						<a class="btn-floating" href="#carouselSerie" data-slide="next">
-							<i class="fa fa-chevron-right"></i>
-						</a>
-					</div>
-					<!--/.Controls-->
-
-					<!--Slides-->
-					<divclass="carousel-inner"
-						role="listbox">
-
-
-						{# premier slide #}
-
-						<div class="carousel-item active">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						{% set n = n +1 %}
-
-						{# second slide #}
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						{% set n = n +1 %}
-
-						{# troisieme slide #}
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-													<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-												</a>
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{series[n].titre}}</h5>
-											<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						{% set n = n +1 %}
-
-					</div>
-				</div>
-
-				{# fin serie ///////////////////////////////////////////////////////////////// #}
-
-
+				<a href="{{path('afficheAllSeries')}}">
+					<h4 class="h42">
+						Les Series</h4>
+				</a>
 			</div>
-			{# parallax FIN #}
+
+			<div
+				id="carouselSerie" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 
-			{# parallax1 anime DEBUT #}
-			
-			<div class="parallax1"> </div>
-
-			<div>
-
-
-				{#LES PROCHAINS ANIMES EN VU #}
-
-				<div>
-					{% set n = 0 %}
-
-					<a href="{{path('afficheAllAnimes')}}">
-						<h5 class="h52">Voir le catalogue des prochains</h5>
-						<h4 class="h42">Animes</h4>
+				<!--Controls-->
+				<div class="controls-top">
+					<a class="btn-floating" href="#carouselSerie" data-slide="prev">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+					<a class="btn-floating" href="#carouselSerie" data-slide="next">
+						<i class="fa fa-chevron-right"></i>
 					</a>
 				</div>
+				<!--/.Controls-->
 
+				<!--Slides-->
 				<div
-					id="carouselAnime" class="carousel slide carousel-multi-item" data-ride="carousel">
+					class="carousel-inner" role="listbox">
 
-					<!--Controls-->
-					<div class="controls-top">
-						<a class="btn-floating" href="#carouselAnime" data-slide="prev">
-							<i class="fa fa-chevron-left"></i>
-						</a>
-						<a class="btn-floating" href="#carouselAnime" data-slide="next">
-							<i class="fa fa-chevron-right"></i>
-						</a>
+
+					{# premier slide #}
+
+					<div class="carousel-item active">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
-					<!--/.Controls-->
+					{% set n = n +1 %}
 
-					<!--Slides-->
-					<div
-						class="carousel-inner" role="listbox">
+					{# second slide #}
 
-						{# premier slide #}
-
-						<div class="carousel-item active">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
 									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
 									</div>
 								</div>
 							</div>
-
-						</div>
-						{% set n = n +1 %}
-
-						{# second slide #}
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
 									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
 									</div>
 								</div>
 							</div>
-
-						</div>
-						{% set n = n +1 %}
-
-						{# troisieme slide #}
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
 									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
-											<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
 									</div>
 								</div>
 							</div>
-
 						</div>
-						{% set n = n +1 %}
-					</div>
-				</div>
-
-				{#Fin de nos Animes / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
-
-			</div>
-			{# parallax1 FIN #}
-
-
-			{# parallax2 film DEBUT #}
-			<div class="parallax2"></div>
-
-			<div>
-
-
-				{#Debut de nos films / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
-
-				<div>
-					{% set n = 0 %}
-					<a href="{{path('afficheAllFilms')}}">
-						<h5 class="h52">Voir le catalogue des prochains</h5>
-						<h4 class="h42">Films</h4>
-					</a>
-				</div>
-				<div
-					id="carouselFilm" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-					<!--Controls-->
-					<div class="controls-top">
-						<a class="btn-floating" href="#carouselFilm" data-slide="prev">
-							<i class="fa fa-chevron-left"></i>
-						</a>
-						<a class="btn-floating" href="#carouselFilm" data-slide="next">
-							<i class="fa fa-chevron-right"></i>
-						</a>
-					</div>
-					<!--/.Controls-->
-
-					<!--Slides-->
-					<div class="carousel-inner" role="listbox">
-
-						<div class="carousel-item active">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">{{films[n].titre}}</h5>
-											<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{films[n].titre}}</h5>
-											<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{films[n].titre}}</h5>
-											<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						{% set n = n +1 %}
-
-						{# second slide #}
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
-												<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{films[n].titre}}</h5>
-											<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="">
-												<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
-													<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-												</a>
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{films[n].titre}}</h5>
-											<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-								{% set n = n +1 %}
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card mb-2">
-										<div class="toopit">
-											<a href="">
-												<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
-													<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
-												</a>
-											</a>
-										</div>
-										<div class="card-body">
-											<h5 class="card-title">Titre:{{films[n].titre}}</h5>
-											<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						{% set n = n +1 %}
-
 
 					</div>
 
+					{% set n = n +1 %}
 
 					{# troisieme slide #}
 
 					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+												<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+											</a>
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLaSerie', {'id':series[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageSeries/" ~ series[n].imageSerie)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{series[n].titre}}</h5>
+										<p class="card-text">Sort le:{{series[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					{% set n = n +1 %}
+
+				</div>
+			</div>
+
+			{# fin serie ///////////////////////////////////////////////////////////////// #}
+
+
+		</div>
+		{# parallax FIN #}
+
+
+		{# parallax1 anime DEBUT #}
+
+		<div class="parallax1"></div>
+
+		<div>
+
+
+			{#LES PROCHAINS ANIMES EN VU #}
+
+			<div>
+				{% set n = 0 %}
+
+				<a href="{{path('afficheAllAnimes')}}">
+					<h4 class="h42">Les Animes</h4>
+				</a>
+			</div>
+
+			<div
+				id="carouselAnime" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+				<!--Controls-->
+				<div class="controls-top">
+					<a class="btn-floating" href="#carouselAnime" data-slide="prev">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+					<a class="btn-floating" href="#carouselAnime" data-slide="next">
+						<i class="fa fa-chevron-right"></i>
+					</a>
+				</div>
+				<!--/.Controls-->
+
+				<!--Slides-->
+				<div
+					class="carousel-inner" role="listbox">
+
+					{# premier slide #}
+
+					<div class="carousel-item active">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					{% set n = n +1 %}
+
+					{# second slide #}
+
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					{% set n = n +1 %}
+
+					{# troisieme slide #}
+
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLanime', {'id':animes[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageAnimes/" ~ animes[n].imageAnime)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{animes[n].titre}}</h5>
+										<p class="card-text">Sort le:{{animes[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					{% set n = n +1 %}
+				</div>
+			</div>
+
+			{#Fin de nos Animes / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
+
+		</div>
+		{# parallax1 FIN #}
+
+
+		{# parallax2 film DEBUT #}
+		<div class="parallax2"></div>
+
+		<div>
+
+
+			{#Debut de nos films / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
+
+			<div>
+				{% set n = 0 %}
+				<a href="{{path('afficheAllFilms')}}">
+					<h4 class="h42">Les Films</h4>
+				</a>
+			</div>
+			<div
+				id="carouselFilm" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+				<!--Controls-->
+				<div class="controls-top">
+					<a class="btn-floating" href="#carouselFilm" data-slide="prev">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+					<a class="btn-floating" href="#carouselFilm" data-slide="next">
+						<i class="fa fa-chevron-right"></i>
+					</a>
+				</div>
+				<!--/.Controls-->
+
+				<!--Slides-->
+				<div class="carousel-inner" role="listbox">
+
+					<div class="carousel-item active">
 						<div class="row">
 							<div class="col-md-4">
 								<div class="card mb-2">
@@ -614,7 +502,7 @@
 										</a>
 									</div>
 									<div class="card-body">
-										<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+										<h5 class="card-title">{{films[n].titre}}</h5>
 										<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
 									</div>
 								</div>
@@ -651,36 +539,148 @@
 
 					</div>
 					{% set n = n +1 %}
+
+					{# second slide #}
+
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+											<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+										<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="">
+											<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+												<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+											</a>
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+										<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+							{% set n = n +1 %}
+							<div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<div class="toopit">
+										<a href="">
+											<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+												<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+											</a>
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+										<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					{% set n = n +1 %}
+
+
 				</div>
 
+
+				{# troisieme slide #}
+
+				<div class="carousel-item">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card mb-2">
+								<div class="toopit">
+									<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+										<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+									</a>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+									<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+								</div>
+							</div>
+						</div>
+						{% set n = n +1 %}
+						<div class="col-md-4 clearfix d-none d-md-block">
+							<div class="card mb-2">
+								<div class="toopit">
+									<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+										<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+									</a>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+									<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+								</div>
+							</div>
+						</div>
+						{% set n = n +1 %}
+						<div class="col-md-4 clearfix d-none d-md-block">
+							<div class="card mb-2">
+								<div class="toopit">
+									<a href="{{path('afficheLeFilm', {'id':films[n].id})}}">
+										<img width="100%" src="{{asset("uploads/imageFilms/" ~ films[n].imageFilm)}}">
+									</a>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title">Titre:{{films[n].titre}}</h5>
+									<p class="card-text">Sort le:{{films[n].dateDeSortieAt| date("m/d/Y")}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				{% set n = n +1 %}
 			</div>
 
-			{#Fin de nos Films / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
+		</div>
+
+		{#Fin de nos Films / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / #}
 
 
-			{# parallax2 FIN #}
+		{# parallax2 FIN #}
 
 
-			<div style="height:200px;background-color:rgb(77, 64, 64);font-size:36px">
+		{# Bouton DEBUT #}
 
-				<h6>À PROPOS DE NOUS</h6>Nous avons créer ce site dans le but de réunir toutes les prochaines sorties de FILMS,SERIES et ANIMÉS. 
-																																																							    Vous trouverez ici donc toutes les informations necésaire sur les prochaines sorties : date, genre ou encore sur
-																																																							    quelle plateforme les retrouver.
-			</div>
+			<div class="main" id="section2"> <a href="#section1">
+				<i class="fas fa-chevron-double-up" style="color: red; display: flex; justify-content: center; width: 100%; height: 50px; align-items: center"></i>
+			</a>
 
+		</div>
+		{# Bouton FIN #}
+	</main>
 
-			{# Bouton DEBUT #}
+<div class="container-fluid">
+	<div class="row">
 
-			<div class="main" id="section2">
+		<div class="about col-12">
 
-				<a href="#section1">
-					<i class="fas fa-chevron-double-up" style="color: red; display: flex; justify-content: center; width: 100%; height: 150px;"></i>
-				</a>
+			<h6>À PROPOS DE NOUS</h6>
+			<p>
+				Nous avons créer ce site dans le but de réunir toutes les prochaines sorties de FILMS,SERIES et ANIMÉS. 
+		        Vous trouverez ici donc toutes les informations necésaire sur les prochaines sorties : 
+		        date, genre ou encore sur quelle plateforme les retrouver.
+			</p>
+		</div>
 
-			</div>
-			{# Bouton FIN #}
+	</div>
+</div>
 
-		</main>
-		
-	</body>
 {% endblock %}

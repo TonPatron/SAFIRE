@@ -18,8 +18,12 @@ class SerieAdminType extends AbstractType
             ->add('titre')
             ->add('imageSerie', FileType::class, ['label' => 'Image (JPG, PNG)','data_class' => null,'required' => false])
             ->add('description')
-            ->add('dateDeSortieAt', DateTimeType::class);
+            ->add('dateDeSortieAt', DateTimeType::class, [
+                'widget' => 'single_text'
+         ])
+            ->add('video')
             //->add('ajouter', ChoiceType::class)
+            ;
         
     }
 

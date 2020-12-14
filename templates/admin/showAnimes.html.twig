@@ -11,11 +11,11 @@
 
 		<div>
 			<a href="{{path('showLanime', {'id':anime.id})}}">
-				<img class="imageabsolute" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'animes du momment">
+				<img class="imageAffichage" src="{{asset('/uploads/imageAnimes/' ~ anime.imageAnime) | imagine_filter('echelle') }}" alt="l'animes du momment">
 			</a>
 		</div>
 		<p>La date:
-			{{anime.dateDeSortieAt| date("m/d/Y")}}
+			{{anime.dateDeSortieAt| date("d/m/Y")}}
 		</p>
 		<div class="description">
 			<h3>Description</h3>
