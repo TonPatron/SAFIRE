@@ -33,7 +33,8 @@ class AnimeFixtures extends Fixture
                 //->setcategorie($categorie)
                 ->setImageAnime($faker->imageUrl($width = 200, $height = 200, 'people'))
                 ->setDateDeSortieAt($faker->dateTimeBetween($startDate = '-30 years', $endDate = 'now'))
-                ->setAjouter(true);
+                ->setAjouter(true)
+                ->setVideo($faker->mimeType());
 
             $manager->persist($anime);
         }
