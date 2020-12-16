@@ -179,9 +179,12 @@ id="content-wrapper" class="d-flex flex-column">
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 			<ul class="navbar-nav ml-auto ">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
 				<li class="nav-item">
-					<a class="nav-link text-info" href="{{path('safire')}}">HOME</a>
+					<a class="nav-link text-info" href="{{path('safire')}}">ACCUEIL</a>
 				</li>
 
 				{% if app.user %}
@@ -196,7 +199,7 @@ id="content-wrapper" class="d-flex flex-column">
 
 				<li class="nav-item text-info">
 					{% if is_granted("ROLE_ADMIN") %}
-						<a class="nav-link text-info" href="{{ path('admin') }}">AMIN</a>
+						<a class="nav-link text-info" href="{{ path('admin') }}">ADMIN</a>
 					{% endif %}
 				</li>
 
@@ -206,6 +209,7 @@ id="content-wrapper" class="d-flex flex-column">
 					{% endif %}
 
 				</li>
+				
 			</ul>
 		</div>
 

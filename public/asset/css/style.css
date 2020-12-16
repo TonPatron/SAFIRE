@@ -1,36 +1,39 @@
 /* Shine */
 
-body {
-    background-color: rgba(0, 0, 0, 0.787);
+@font-face {
+    font-family: "dance fever";
+    src: url("../typo/Dance fever.ttf") format("truetype")
 }
 
-.h42 {
-    color: rgba(255, 0, 0, 0.719);
+body {
+    background-color: rgba(0, 0, 0, 0.787);
+    font-family: "dance fever";
 }
 
 .h52 {
-    color: rgba(60, 60, 241, 0.753);
+    color: rgba(255, 0, 0, 0.753);
+}
+
+.card-title {
+    font-size: 1.1rem;
 }
 
 body {
     background-color: rgb(3, 3, 3);
+    /* HEADER */
+}
 
-
-/* HEADER */
-
-
-}   
-#nav{
-     /* background: url("../image/safire.jpg");  */
+#nav {
+    /* background: url("../image/safire.jpg");  */
     background-size: cover;
     background-position: center;
 }
 
 .bcg {
     width: 100%;
-   
-}    
-.droite{
+}
+
+.droite {
     align-items: center;
     justify-content: end;
 }
@@ -52,31 +55,26 @@ body {
     height: 90px;
 }
 
-
-.logo{
-padding-right: 20%;
-width: auto;
-height: 90px;
+.logo {
+    padding-right: 20%;
+    width: auto;
+    height: 90px;
 }
 
-.imgLogo{
+.imgLogo {
     padding-right: 30%;
     width: auto;
     height: 90px;
-    }
-
-
+}
 
 /* MAIN */
 
-    
-.clr{
-    background-color:#f0f0f0;
-     
+.clr {
+    background-color: #f0f0f0;
 }
 
-.title h3{
-    color: black; 
+.title h3 {
+    color: black;
 }
 
 .toopit {
@@ -86,7 +84,8 @@ height: 90px;
 }
 
 .toopit img {
-    min-width: 100%; 
+    min-width: 100%;
+    min-height: 295px;
 }
 
 .caranime {
@@ -94,35 +93,35 @@ height: 90px;
     max-height: 200%;
 }
 
-.card-title{
+.card-title {
     min-height: 87px;
 }
 
-.about{
+.about {
     margin: 50px 0 0 0;
-    background-color:#238fb5;
+    background-color: #238fb5;
     padding: 30px 50px;
-    font-size:100%;
-}
-.about h6{
-font-size: 2em;
-padding: 0 30px;
-font-weight: bolder;
+    font-size: 100%;
 }
 
-.about p{
-font-size: 19px;
-line-height: 25px;
-} 
+.about h6 {
+    font-size: 2em;
+    padding: 0 30px;
+    font-weight: bolder;
+}
 
-@media screen and ( min-width: 576px){
-   .about p{
-       padding: 0 60px;
-} 
+.about p {
+    font-size: 19px;
+    line-height: 25px;
+}
+
+@media screen and ( min-width: 576px) {
+    .about p {
+        padding: 0 60px;
+    }
 }
 
 /* FOOTER */
-
 
 /* .foot {
      background :url("../image/safire.jpg") ;  
@@ -135,35 +134,32 @@ line-height: 25px;
 }
  */
 
-.foot{
-     /* background :url("../image/safire.jpg") ;   */
-     /* background-color: black; */
-    
+.foot {
+    /* background :url("../image/safire.jpg") ;   */
+    /* background-color: black; */
     height: 200px;
     width: 100%;
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-around;
     padding: 2%;
- }
-
- .rez{
-     display: flex;
-     flex-direction: column;
-     color: rgb(168, 162, 162);
- }
-
-#section2{
-background-color: black;
-width: 5%;
-position: absolute;
-right: 1px;
-top: 2930px;
-border-radius: 4px;
-cursor: pointer;
-z-index: 20;
 }
 
-ba
+.rez {
+    display: flex;
+    flex-direction: column;
+    color: rgb(168, 162, 162);
+}
+
+#section2 {
+    background-color: black;
+    width: 5%;
+    position: absolute;
+    right: 1px;
+    top: 2930px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 20;
+}
 
 /* #section1{
 border: 1px solid red;
@@ -178,100 +174,124 @@ z-index: 20;
 } 
  */
 
-.suivant{
+.suivant {
     width: 3.5em;
     height: 3.5em;
 }
 
-#section2:hover{
+#section2:hover {
     background-color: rgb(11, 102, 187);
 }
 
+body, html {
+    height: 100%;
+    background-color: black;
+}
 
-/* mainnnnnnn */
+html {
+    scroll-behavior: smooth;
+}
 
-body,
-        html {
-            height: 100%;
-            background-color: black;
-        }
+.foot {
+    background-color: black;
+    color: rgb(168, 162, 162);
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 
-       
+.rez {
+    display: flex;
+    flex-direction: column;
+    color: rgb(168, 162, 162);
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+.rez h6 {
+    color: #f0f0f0;
+}
 
-        .foot{
-            
-           background-color: black; 
-           color: rgb(168, 162, 162);
-           height: 200px;
-           width: 100%;
-           display: flex;
-           justify-content: space-around;
-        }
-        .rez{
-            display: flex;
-            flex-direction: column;
-            color: rgb(168, 162, 162);
-        }
-    
+/* AFFICHAGE */
 
+.imageAffichage {
+    max-width: 210px;
+    max-height: 300px;
+}
 
+/* PROFIL */
 
- .rez h6{
-     color: #f0f0f0;
- }
-
-
-
- /* AFFICHAGE */
-
- .imageAffichage{
-     max-width: 210px;
-     max-height: 300px;
- }
-
- /* PROFIL */
-
- .profil{
+.profil {
     background-image: url("../image/ww 1984.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
-   
 }
 
-.laPhotoProfil{
+.laPhotoProfil {
     margin: 5%;
     display: flex;
     justify-content: center;
 }
 
-.photoProfil{
-    
+.photoProfil {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     margin: auto;
 }
 
-.compte1{
-    
-    padding: 20px ;
+.compte1 {
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.leg {
+    line-height: 20px;
+    margin-top: 5%;
+    padding: 30px;
+}
 
+#titles {
+    position: absolute;
+    width: 20em;
+    height: 25em;
+    bottom: 0;
+    left: 50%;
+    margin-left: -9em;
+    font-size: 350%;
+    font-weight: bold;
+    text-align: justify;
+    overflow: hidden;
+    transform-origin: 50% 100%;
+    transform: perspective(300px) rotateX(25deg);
+}
 
+#titles:after {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 60%;
+    background-image: linear-gradient(top, rgba(0, 0, 0, 1) 0%, transparent 100%);
+    pointer-events: none;
+}
 
+#titlecontent {
+    position: absolute;
+    top: 100%;
+    animation: scroll 100s linear 3s infinite;
+}
 
-
-
-
-
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
+}
