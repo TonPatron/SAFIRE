@@ -11,8 +11,13 @@ body {
 }
 
 .h52 {
+<<<<<<< HEAD
     color: rgba(255, 255, 255, 0.753);
     padding-left: 5%;
+=======
+    color: rgba(255, 0, 0, 0.753);
+    
+>>>>>>> 3f8c0af12aa7b34611b09ead544372df69dc9e3c
 }
 
 .h5, h5 {
@@ -68,6 +73,20 @@ body {
     width: auto;
     height: 90px;
 }
+/* 
+.titreAutocom{
+    color: red;
+    background-color: white;
+    z-index: 50;
+    position: absolute;
+    width: 20%;
+    height: 40px;
+    top:70px;
+  
+    
+}
+ */
+
 
 /* MAIN */
 
