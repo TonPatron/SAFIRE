@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AnimeType extends AbstractType
 {
@@ -24,7 +25,7 @@ class AnimeType extends AbstractType
             ->add('dateDeSortieAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('video')
+            ->add('video', TextType::class,  ['label'=> 'Copier le code d\'intégration ' ] )
             // ->add('ajouter')
             //->add('categorie', ChoiceType::class)
         ;
