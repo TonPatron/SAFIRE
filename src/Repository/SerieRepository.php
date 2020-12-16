@@ -36,6 +36,23 @@ class SerieRepository extends ServiceEntityRepository
     }
     */
 
+
+    /**
+     * @return User[]
+     */
+    public function findAllMatchingSerie(string $value, int $limit = 5)
+    {
+        return $this->createQueryBuilder('s')
+        ->andWhere('s.titre LIKE :val')
+        ->setParameter('val', $value.'%')
+        ->setMaxResults($limit)
+        ->getQuery()
+        ->getResult();
+    }
+
+
+
+
     /*
     public function findOneBySomeField($value): ?Serie
     {

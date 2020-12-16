@@ -36,7 +36,7 @@ class AnimeRepository extends ServiceEntityRepository
     }
     */
 
-   /**
+     /**
      * @return User[]
      */
     public function findAllMatching(string $value, int $limit = 5)

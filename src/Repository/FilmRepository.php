@@ -37,6 +37,20 @@ class FilmRepository extends ServiceEntityRepository
     */
 
 
+    /**
+     * @return User[]
+     */
+    public function findAllMatchingFilm(string $value, int $limit = 5)
+    {
+        return $this->createQueryBuilder('f')
+        ->andWhere('f.titre LIKE :val')
+        ->setParameter('val', $value.'%')
+        ->setMaxResults($limit)
+        ->getQuery()
+        ->getResult();
+    }
+
+
     
     /*
     public function findOneBySomeField($value): ?Film

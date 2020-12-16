@@ -55,7 +55,7 @@ class SafireController extends AbstractController
     }
 
 
-  
+
 
 
 
@@ -116,8 +116,10 @@ class SafireController extends AbstractController
     /**
      * @Route("/safire/afficheLeFilm/{id}", name="afficheLeFilm")
      */
-    public function afficheduFilm($id)
+    public function afficheduFilm($id, Request $request)
     {
+
+
         $repository = $this->getDoctrine()->getRepository(Film::class);
         $film = $repository->find($id);
 
@@ -148,8 +150,10 @@ class SafireController extends AbstractController
     /**
      * @Route("/safire/afficheLaSerie/{id}", name="afficheLaSerie")
      */
-    public function afficheDuneSerie($id)
+    public function afficheDuneSerie($id, Request $request)
     {
+
+
         $repository = $this->getDoctrine()->getRepository(Serie::class);
         $serie = $repository->find($id);
 
@@ -165,6 +169,7 @@ class SafireController extends AbstractController
      */
     public function afficheAllAnimes()
     {
+
         $repository = $this->getDoctrine()->getRepository(Anime::class);
         $animes = $repository->findBy(
             array(),
@@ -180,8 +185,13 @@ class SafireController extends AbstractController
     /**
      * @Route("/safire/afficheLanime/{id}", name="afficheLanime")
      */
-    public function afficheDunAnime($id)
+    public function afficheDunAnime($id, Request $request)
     {
+        if ($id === "n") {
+            $id = $request->get("requestid");
+        }
+
+
         $repository = $this->getDoctrine()->getRepository(Anime::class);
         $anime = $repository->find($id);
 
