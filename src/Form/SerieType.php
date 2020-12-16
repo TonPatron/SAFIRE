@@ -21,7 +21,10 @@ class SerieType extends AbstractType
             ->add('dateDeSortieAt', DateTimeType::class, [
                 'widget' => 'single_text'
          ])
-            ->add('video')
+            ->add('video', TextareaType::class,[
+                'mapped' => false
+            ])
+
             //->add('ajouter')
             //->add('categorie', ChoiceType::class)
         ;

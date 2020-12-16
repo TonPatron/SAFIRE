@@ -1,7 +1,13 @@
 /* Shine */
 
+@font-face {
+    font-family: "dance fever";
+    src: url("../typo/Dance fever.ttf") format("truetype")
+}
+
 body {
     background-color: rgba(0, 0, 0, 0.787);
+    font-family: "dance fever";
 }
 
 .h52 {
@@ -145,44 +151,37 @@ body {
 }
 
 #section2 {
-    border: 1px solid red;
-    background-color: #e2e4e76e;
+    background-color: black;
     width: 5%;
     position: absolute;
     right: 1px;
     top: 2930px;
+    border-radius: 4px;
+    cursor: pointer;
     z-index: 20;
 }
 
-/* @media screen and (min-width: 576px){
-    #section2{
-        top: 3110px;
- }
-} */
+/* #section1{
+border: 1px solid red;
+background-color: #e2e4e76e;
+width: 5%;
+position: absolute;
+right: 1px;
+bottom: 360px;
+border-radius: 4px;
+cursor: pointer;
+z-index: 20;
+} 
+ */
 
-#section1 {
-    border: 1px solid red;
-    background-color: #e2e4e76e;
-    width: 5%;
-    position: absolute;
-    right: 1px;
-    bottom: 360px;
-    z-index: 20;
+.suivant {
+    width: 3.5em;
+    height: 3.5em;
 }
 
-/* @media screen and (min-width: 576px){
-
-    #section1{
-bottom: 120px;
+#section2:hover {
+    background-color: rgb(11, 102, 187);
 }
-
-@media screen and (min-width: 720px){
-    #section2{
-        top: 480px;
- }
-} */
-
-/* mainnnnnnn */
 
 body, html {
     height: 100%;
@@ -250,7 +249,49 @@ html {
     align-items: center;
 }
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
+.leg {
+    line-height: 20px;
+    margin-top: 5%;
+    padding: 30px;
+}
+
+#titles {
+    position: absolute;
+    width: 20em;
+    height: 25em;
+    bottom: 0;
+    left: 50%;
+    margin-left: -9em;
+    font-size: 350%;
+    font-weight: bold;
+    text-align: justify;
+    overflow: hidden;
+    transform-origin: 50% 100%;
+    transform: perspective(300px) rotateX(25deg);
+}
+
+#titles:after {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 60%;
+    background-image: linear-gradient(top, rgba(0, 0, 0, 1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+#titlecontent {
+    position: absolute;
+    top: 100%;
+    animation: scroll 100s linear 3s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
 }
