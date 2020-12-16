@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AnimeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AnimeRepository::class)
@@ -18,21 +19,25 @@ class Anime
     private $id;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      */
     private $imageAnime;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="datetime")
      */
     private $dateDeSortieAt;

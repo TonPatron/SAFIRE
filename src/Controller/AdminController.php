@@ -13,6 +13,7 @@ use App\Entity\Categorie;
 use App\Form\FilmAdminType;
 use App\Form\AnimeAdminType;
 use App\Form\SerieAdminType;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +29,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin55555", name="admin")
+     * @Route("/admin", name="admin")
      */
     public function index(): Response
     {
@@ -44,10 +45,10 @@ class AdminController extends AbstractController
     /**
      * @Route("/user/profil/", name="profil")
      */
-    public function showProfil( UserInterface $user)
+    public function showProfil(UserInterface $user)
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $profil= $repository->find($user->getId());
+        $profil = $repository->find($user->getId());
 
 
         return $this->render('admin/profil.html.twig', [
@@ -166,6 +167,8 @@ class AdminController extends AbstractController
 
 
 
+
+
     ////////////////////////////////////////////////////FILM///////////////////////////////////////////////////////////////////////
 
     /**
@@ -246,7 +249,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/showFilms.html.twig', [
             'films' => $films
-            
+
         ]);
     }
 
