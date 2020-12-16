@@ -36,6 +36,22 @@ class AnimeRepository extends ServiceEntityRepository
     }
     */
 
+   /**
+     * @return User[]
+     */
+    public function findAllMatching(string $value, int $limit = 5)
+    {
+        return $this->createQueryBuilder('a')
+        ->andWhere('a.titre LIKE :val')
+        ->setParameter('val', $value.'%')
+        ->setMaxResults($limit)
+        ->getQuery()
+        ->getResult();
+    }
+
+
+
+
     /*
     public function findOneBySomeField($value): ?Anime
     {

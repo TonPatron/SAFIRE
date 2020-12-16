@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
+use LimitIterator;
 use App\Entity\Film;
 use App\Entity\Anime;
 use App\Entity\Serie;
 use App\Entity\Categorie;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping\OrderBy;
-use LimitIterator;
+use App\Repository\AnimeRepository;
+use App\Repository\SerieRepository;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class SafireController extends AbstractController
 {
@@ -52,12 +55,11 @@ class SafireController extends AbstractController
     }
 
 
+  
 
 
 
-
-
-
+    ////////////////////////////////////////////////UTILISATEUR//////////////////////////////////////
 
     /**
      * @Route("/inscription", name="inscription")
@@ -86,7 +88,7 @@ class SafireController extends AbstractController
 
 
 
-    
+
 
     ////////////////////////////////////////AFFICHAGE///////////////////////////////////////////////////
 
@@ -102,7 +104,8 @@ class SafireController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Film::class);
         $films = $repository->findBy(
             array(),
-            array('dateDeSortieAt' => 'DESC'));
+            array('dateDeSortieAt' => 'DESC')
+        );
 
         return $this->render('safire/afficheAllFilms.html.twig', [
             'films' => $films
@@ -133,7 +136,8 @@ class SafireController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Serie::class);
         $series = $repository->findBy(
             array(),
-            array('dateDeSortieAt' => 'DESC'));
+            array('dateDeSortieAt' => 'DESC')
+        );
 
         return $this->render('safire/afficheAllSeries.html.twig', [
             'series' => $series
@@ -163,9 +167,9 @@ class SafireController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(Anime::class);
         $animes = $repository->findBy(
-        array(),
-        array('dateDeSortieAt' => 'DESC')
-    );
+            array(),
+            array('dateDeSortieAt' => 'DESC')
+        );
 
         return $this->render('safire/afficheAllAnimes.html.twig', [
             'animes' => $animes
