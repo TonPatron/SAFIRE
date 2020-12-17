@@ -25,7 +25,8 @@ class AnimeType extends AbstractType
             ->add('dateDeSortieAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('video', TextType::class,  ['label'=> 'Copier le code d\'intégration ' ] )
+            ->add('video', TextType::class,  ['label'=> 'Copier le code d\'intégration ',
+            "mapped" => false ] )
             // ->add('ajouter')
             //->add('categorie', ChoiceType::class)
         ;

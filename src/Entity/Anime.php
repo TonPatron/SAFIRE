@@ -53,9 +53,11 @@ class Anime
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $video;
+
+
 
     public function getId(): ?int
     {
@@ -139,10 +141,12 @@ class Anime
         return $this->video;
     }
 
-    public function setVideo(string $video): self
+    public function setVideo(?string $video): self
     {
         $this->video = $video;
 
         return $this;
     }
+
+
 }

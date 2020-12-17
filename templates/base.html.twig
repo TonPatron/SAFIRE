@@ -67,14 +67,13 @@
 
 
 				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="text" placeholder="RECHERCHE" id="kup" style="position: relative">
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit">
+					<input class="form-control mr-sm-2" type="text" placeholder="RECHERCHE" id="kup" >
+					<button class="btn btn-secondary my-2 my-sm-0" id="btnAuto" type="submit">
 						<i class="fas fa-search"></i>
 					</button>
 				</form>
 
-				<div class="titreAutocom"
-					style="color: red; background-color: white; z-index: 50; position: absolute; width: 11%; height: 40px; top:64px; right: 74px ">
+				<div class="titreAutocom" id="autoTitre">
 				</div>
 			</div>
 
@@ -141,7 +140,10 @@
 
 	<script>
 
+
 $(".titreAutocom").hide()
+
+
 
 		$("#kup").keyup(function (e) {
 
